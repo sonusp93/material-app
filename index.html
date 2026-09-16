@@ -13,20 +13,18 @@
             --tg-theme-bg-color: #ffffff;
             --tg-theme-text-color: #000000;
             --tg-theme-hint-color: #999999;
-            --tg-theme-link-color: #2481cc;
             --tg-theme-button-color: #3390ec;
             --tg-theme-button-text-color: #ffffff;
             --tg-theme-secondary-bg-color: #f4f4f5;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--tg-theme-secondary-bg-color, #f4f4f5);
             color: var(--tg-theme-text-color, #000000);
             -webkit-tap-highlight-color: transparent;
             padding-bottom: 80px; 
             margin: 0;
-            line-height: 1.5;
             overflow-x: hidden;
         }
 
@@ -36,7 +34,6 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             margin-bottom: 16px;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
 
         .panel-header {
@@ -45,34 +42,14 @@
             font-size: 13px;
             color: var(--tg-theme-button-color, #3390ec);
             border-bottom: 1px solid var(--tg-theme-secondary-bg-color, #e4e4e5);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            display: flex; align-items: center; gap: 8px; text-transform: uppercase;
         }
 
-        .panel-content {
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
+        .panel-content { padding: 16px; display: flex; flex-direction: column; gap: 16px; }
 
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            animation: fadeIn 0.4s ease-out;
-        }
+        .input-group { display: flex; flex-direction: column; gap: 8px; }
 
-        .label-text {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--tg-theme-hint-color, #707579);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        .label-text { font-size: 12px; font-weight: 600; color: var(--tg-theme-hint-color, #707579); text-transform: uppercase; }
 
         .tg-input {
             width: 100%;
@@ -81,186 +58,46 @@
             border: 1.5px solid transparent;
             border-radius: 10px;
             padding: 12px 14px;
-            font-size: 15px;
-            font-family: inherit;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-sizing: border-box;
+            font-size: 15px; font-weight: 500;
+            box-sizing: border-box; transition: all 0.3s ease;
         }
 
-        .tg-input:focus {
-            outline: none;
-            border-color: var(--tg-theme-button-color, #3390ec);
-            background-color: var(--tg-theme-bg-color, #ffffff);
-            box-shadow: 0 4px 12px rgba(51, 144, 236, 0.15);
-            transform: translateY(-1px);
-        }
-
-        .tg-input::placeholder { color: var(--tg-theme-hint-color, #999999); font-weight: 400; }
+        .tg-input:focus { outline: none; border-color: var(--tg-theme-button-color, #3390ec); background-color: var(--tg-theme-bg-color, #ffffff); }
 
         select.tg-input {
             appearance: none;
             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23999999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 14px center;
-            background-size: 18px;
-            padding-right: 40px;
+            background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; padding-right: 40px;
         }
 
         .combo-input-container { display: flex; gap: 8px; flex-direction: column; }
         
-        .manual-entry-active {
-            border-color: var(--tg-theme-button-color, #3390ec);
-            animation: slideDownFade 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .manual-entry-active { border-color: var(--tg-theme-button-color, #3390ec); }
 
         .btn-action {
             background-color: var(--tg-theme-button-color, #3390ec);
             color: var(--tg-theme-button-text-color, #ffffff);
-            border: none;
-            border-radius: 12px;
-            padding: 16px 20px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 4px 12px rgba(51, 144, 236, 0.3);
-            width: 100%;
+            border: none; border-radius: 12px; padding: 16px 20px; font-size: 16px; font-weight: 700;
+            cursor: pointer; text-align: center; width: 100%; transition: transform 0.1s;
         }
+        .btn-action:active { transform: scale(0.96); }
+        .btn-action:disabled { opacity: 0.7; pointer-events: none; }
 
-        .btn-action:active {
-            transform: scale(0.96);
-            box-shadow: 0 2px 6px rgba(51, 144, 236, 0.2);
-        }
+        .btn-secondary { background-color: var(--tg-theme-secondary-bg-color, #f4f4f5); color: var(--tg-theme-text-color, #000000); padding: 14px 20px; font-size: 15px; box-shadow: none; }
 
-        .btn-action:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .btn-secondary {
-            background-color: var(--tg-theme-secondary-bg-color, #f4f4f5);
-            color: var(--tg-theme-text-color, #000000);
-            box-shadow: none;
-            padding: 14px 20px;
-            font-size: 15px;
-        }
-
-        .sheet-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(3px);
-            z-index: 99;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .sheet-overlay.open {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .bottom-sheet {
-            position: fixed;
-            bottom: -100%;
-            left: 0;
-            right: 0;
-            background: var(--tg-theme-bg-color, #ffffff);
-            border-radius: 24px 24px 0 0;
-            z-index: 100;
-            transition: bottom 0.4s cubic-bezier(0.3, 1, 0.32, 1);
-            max-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 -8px 24px rgba(0,0,0,0.1);
-        }
-
+        /* Bottom Sheet Popup Styles */
+        .sheet-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); z-index: 99; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+        .sheet-overlay.open { opacity: 1; pointer-events: auto; }
+        .bottom-sheet { position: fixed; bottom: -100%; left: 0; right: 0; background: var(--tg-theme-bg-color, #ffffff); border-radius: 24px 24px 0 0; z-index: 100; transition: bottom 0.4s cubic-bezier(0.3, 1, 0.32, 1); max-height: 85vh; display: flex; flex-direction: column; }
         .bottom-sheet.open { bottom: 0; }
-
-        .mat-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--tg-theme-secondary-bg-color, #f4f4f5);
-            animation: fadeIn 0.3s ease-out;
-        }
         
+        .mat-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--tg-theme-secondary-bg-color, #f4f4f5); }
         .mat-name { font-size: 14px; font-weight: 600; flex: 1; }
-
-        .mat-controls {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background-color: var(--tg-theme-secondary-bg-color, #f4f4f5);
-            border-radius: 20px;
-            padding: 4px 8px;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .mat-btn {
-            background: var(--tg-theme-bg-color, #ffffff);
-            border: none;
-            color: var(--tg-theme-text-color, #000000);
-            font-size: 18px;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: transform 0.1s;
-        }
-        .mat-btn:active { transform: scale(0.9); }
-
-        .mat-input {
-            width: 40px;
-            text-align: center;
-            background: transparent;
-            border: none;
-            color: var(--tg-theme-button-color, #3390ec);
-            font-weight: 800;
-            font-size: 16px;
-            padding: 0;
-        }
+        .mat-controls { display: flex; align-items: center; gap: 12px; background-color: var(--tg-theme-secondary-bg-color, #f4f4f5); border-radius: 20px; padding: 4px 8px; }
+        .mat-btn { background: var(--tg-theme-bg-color, #ffffff); border: none; color: var(--tg-theme-text-color, #000000); font-size: 18px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .mat-input { width: 40px; text-align: center; background: transparent; border: none; color: var(--tg-theme-button-color, #3390ec); font-weight: 800; font-size: 16px; padding: 0; }
         
-        .mat-input:focus { outline: none; }
-
-        .selected-mat-badge {
-            background-color: var(--tg-theme-button-color, #3390ec);
-            color: var(--tg-theme-button-text-color, #ffffff);
-            padding: 6px 12px;
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
-            display: inline-block;
-            margin: 4px 4px 0 0;
-            animation: fadeInScale 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideDownFade {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
+        .selected-mat-badge { background-color: var(--tg-theme-button-color, #3390ec); color: var(--tg-theme-button-text-color, #ffffff); padding: 6px 12px; border-radius: 100px; font-size: 12px; font-weight: 600; display: inline-block; margin: 4px 4px 0 0; }
         .hidden-animated { display: none !important; }
     </style>
 </head>
@@ -271,7 +108,8 @@
         <p id="userInfo" class="text-[var(--tg-theme-hint-color)] font-medium text-xs mt-1">Authenticating...</p>
     </div>
 
-    <div class="max-w-md mx-auto">
+    <!-- Prevent native form submission reloads -->
+    <form onsubmit="return false;" class="max-w-md mx-auto">
         
         <div class="panel">
             <div class="panel-header"><span>💠</span> BASIC INFO</div>
@@ -303,7 +141,7 @@
                 <div class="input-group">
                     <label class="label-text">RFO 1 *</label>
                     <select id="rfo1" class="tg-input">
-                        <option value="" disabled selected>Select RFO 1...</option>
+                        <option value="N/A" disabled selected>Select RFO 1...</option>
                     </select>
                 </div>
                 
@@ -311,7 +149,7 @@
                     <label class="label-text">RFO 2</label>
                     <div class="combo-input-container">
                         <select id="rfo2-select" class="tg-input">
-                            <option value="N/A" selected>Select RFO 2...</option>
+                            <option value="N/A" disabled selected>Select RFO 2...</option>
                         </select>
                         <input type="text" id="rfo2-manual" class="tg-input manual-entry-active mt-2 hidden-animated" placeholder="Type manual RFO 2...">
                     </div>
@@ -321,7 +159,7 @@
                     <label class="label-text">REASON FOR CUT</label>
                     <div class="combo-input-container">
                         <select id="reason-select" class="tg-input">
-                            <option value="N/A" selected>Select Reason...</option>
+                            <option value="N/A" disabled selected>Select Reason...</option>
                         </select>
                         <input type="text" id="reason-manual" class="tg-input manual-entry-active mt-2 hidden-animated" placeholder="Type manual Reason...">
                     </div>
@@ -401,16 +239,14 @@
 
                 <div class="input-group">
                     <label class="label-text">DELAY REASON</label>
-                    <select id="delay" class="tg-input">
-                        <!-- Populated dynamically -->
-                    </select>
+                    <select id="delay" class="tg-input"></select>
                 </div>
                 
                 <div id="delay_specific_container" class="input-group hidden-animated">
                     <label class="label-text text-[var(--tg-theme-button-color)]">SPECIFIC DELAY CAUSE</label>
                     <div class="combo-input-container">
                         <select id="delay_specific-select" class="tg-input">
-                            <option value="N/A" selected>Select Specific Cause...</option>
+                            <option value="N/A" disabled selected>Select Specific Cause...</option>
                         </select>
                         <input type="text" id="delay_specific-manual" class="tg-input manual-entry-active mt-2 hidden-animated" placeholder="Explain the delay...">
                     </div>
@@ -436,13 +272,11 @@
             <button type="button" id="submit-btn" onclick="submitForm()" class="btn-action shadow-lg">
                 ✅ SAVE & SUBMIT ENTRY
             </button>
-            <p class="text-center text-[var(--tg-theme-hint-color)] font-medium text-xs mt-3 opacity-80">
-                Ensure you opened this via the Telegram Menu Button!
-            </p>
         </div>
 
-    </div>
+    </form>
 
+    <!-- Material Selection Popup Bottom Sheet -->
     <div id="mat-overlay" class="sheet-overlay" onclick="closeMaterialModal()"></div>
     <div id="mat-sheet" class="bottom-sheet">
         <div class="p-4 border-b border-[var(--tg-theme-secondary-bg-color)] flex justify-between items-center sticky top-0 bg-[var(--tg-theme-bg-color)] rounded-t-[24px] z-10">
@@ -455,8 +289,9 @@
         </div>
     </div>
 
+    <!-- Alert Modal -->
     <div id="alert-modal" class="fixed inset-0 bg-black/60 z-[999] items-center justify-center p-5 hidden-animated flex">
-        <div class="bg-[var(--tg-theme-bg-color)] rounded-2xl p-6 max-w-sm w-full text-center shadow-2xl transform scale-95 transition-transform" id="alert-box">
+        <div class="bg-[var(--tg-theme-bg-color)] rounded-2xl p-6 max-w-sm w-full text-center shadow-2xl" id="alert-box">
             <h3 id="alert-title" class="font-bold text-xl mb-2 text-[var(--tg-theme-text-color)]">Notice</h3>
             <p id="alert-msg" class="text-sm font-medium text-[var(--tg-theme-hint-color)] mb-6 leading-relaxed whitespace-pre-wrap"></p>
             <button onclick="closeAlert()" class="btn-action">Got it</button>
@@ -464,377 +299,111 @@
     </div>
 
     <script>
-        // MASSIVE JSON PROVIDED BY USER FOR DROPDOWNS
         const MAPPINGS = {
           "DELAY_REASONS": {
             "NO DELAY": [],
-            "Rain/Weather": [
-              "Heavy Downpour", "Light Drizzle", "Lightning Hazard", "Storm/Cyclone Warning", "Waiting for Rain Stop", 
-              "Post-Rain Cleanup", "Flood/Waterlogging", "High Winds/Gale", "Thunderstorm", "Fog/Low Visibility", 
-              "Extreme Heat/Sun", "Hailstorm", "Continuous Monsoons", "Slippery Terrain", "Mud/Slush on Site", 
-              "Equipment Protection Prep", "Tarp Setup Required", "Wet Cables/Splicing Issue", "Umbrella Setup Time", "Road Inaccessible due to Rain"
-            ],
-            "Traffic/Road Block": [
-              "Peak Hour Jam", "Road Blockage", "VIP Movement", "Narrow Road Access", "Accident on Route", 
-              "Police Diversion", "Slow Heavy Vehicle", "Festival/Procession Block", "Construction Traffic", "Toll Plaza Delays", 
-              "Parking Unavailable", "Vehicle Breakdown Blocking", "Waterlogged Road", "One-Way Restriction", "Pedestrian Congestion", 
-              "Protest Blocking Road", "Railway Crossing Closed", "Bridge Under Repair", "Heavy Fog Traffic Delay", "VVIP Convoy Passing"
-            ],
-            "Access - Premises": [
-              "Gate Locked", "Customer Unavailable", "Security Denied", "Secretary Unavailable", "Dog/Pet Hazard", 
-              "Biometric Fail", "Key with Neighbor", "Sleeping/DND", "Meeting in Progress", "House Renovation Ongoing", 
-              "Intercom Not Working", "Lift Out of Order", "Security Guard Shift Change", "Entry Pass Generation", "Complex Rules/Timing", 
-              "ID Proof Required", "RWA Secretary Approval", "Key Holder Not Answering", "Wrong Address Given", "Covid/Health Restriction"
-            ],
-            "Access - Cabinet/POP": [
-              "Key Missing", "Lock Rusted/Jammed", "Handle Broken", "Smart Lock Fail", "Door Stuck", 
-              "Overgrown Weeds", "Bee Hive Inside", "Water Inside Cabinet", "No Ladder Access", "Blocked by Parked Car", 
-              "Rack Space Locked", "Cable Entangled at Door", "Cabinet Buried in Mud", "Building Locked (POP)", "Security Escort Delayed", 
-              "Damaged Keyhole", "Previous Tech Kept Key", "Debris Blocking Door", "Floor Flooded (Basement)", "Rat Infestation Inside"
-            ],
-            "Permission - Govt": [
-              "KSEB Permit Wait", "PWD Objection", "Corporation Stop Memo", "Traffic Police Stop", "NHAI Permission", 
-              "Forest Dept Stop", "Metro Authority", "Municipality Digging Ban", "Panchayat Approval Pending", "Police Station Clearance", 
-              "BSNL Authority Issue", "Water Dept (KWA) Work", "Railways Permission", "Canal/Irrigation Dept", "Coastal Regulation Zone", 
-              "Heritage Area Rules", "Port Trust Authority", "Highway Patrol Stop", "Election Code Conduct", "Local Ward Member Hold"
-            ],
-            "Permission - Private": [
-              "Neighbor Objection", "Landlord Dispute", "RWA Letter Pending", "Shopkeeper Blocking", "Private Road Block", 
-              "Compound Entry Denied", "Association Meeting Wait", "Tenant Refusing Access", "Builder Stop Work", "Adjacent Property Crossing", 
-              "Mall Management Rule", "Office Admin Approval", "Hospital Zone Rules", "Hotel Security Protocol", "School/College Timing", 
-              "Factory Entry Pass", "Flat Owner Not Home", "Boundary Wall Dispute", "Land Dispute Area", "Guard Refused Entry"
-            ],
-            "Power - Grid": [
-              "Area Blackout (KSEB)", "Transformer Maint", "Load Shedding", "Low Voltage", "Phase Missing", 
-              "Feeder Trip", "Line Fault", "Grid Overload", "High Voltage Fluctuation", "Broken EB Pole", 
-              "Tree Fallen on HT Line", "Substation Shutdown", "Preventive Maintenance Cut", "Fuse Blown at Pole", "Lightning Struck Line", 
-              "Transformer Blown", "Neutral Wire Snapped", "Feeder Line Sparking", "Area Load Relief", "Power Cut After Rain"
-            ],
-            "Power - Local": [
-              "Building DG Fail", "UPS Battery Dead", "Inverter Overload", "Socket Burnout", "No Power Point", 
-              "Extension Short", "Generator Fuel Empty", "MCB Tripping", "Wiring Burnt", "Wrong Phase Connected", 
-              "Main Switch Off", "Customer Switched Off", "Meter Faulty", "ELCB Tripping", "Loose Contact at Plug", 
-              "Generator Auto-Switch Fail", "Low Voltage at Socket", "Extension Cord Cut", "Battery Bulged", "Solar Panel No Output"
-            ],
-            "Material Shortage": [
-              "Cable Out of Stock", "Patch Cord Missing", "Pigtail Shortage", "Closure/Joint Kit Missing", "Splitter Unavailable", 
-              "Sleeves Finished", "Connectors Empty", "Cable Ties Finished", "Clamp/Hook Missing", "Drop Wire Finished", 
-              "Specific Color Missing", "Drum Empty", "Insulation Tape Finished", "Anchoring Accessories", "Patch Panel Port Full", 
-              "Rack Screws Missing", "Dust Caps Unavailable", "Splicing Gel Empty", "ODF Tray Missing", "Router/ONU Out of Stock"
-            ],
-            "Manpower Issue": [
-              "Splicer on Leave", "Shift Handover Delay", "Helper Unavailable", "Digging Team Late", "Traffic Marshal Missing", 
-              "Driver Sick/Leave", "Patroller Delayed", "Technician Injured", "Overtime Fatigue", "Team Assigned Elsewhere", 
-              "Reliever Not Arrived", "Miscommunication on Plan", "Guide/Local Help Missing", "Lunch/Food Break", "Out of Station", 
-              "Emergency Leave", "Contractor Payment Dispute", "Lack of Trained Staff", "Union Meeting", "Subcontractor Absent"
-            ],
-            "Equipment Failure": [
-              "Machine Battery Dead", "Cleaver Blade Dull", "Arc Failure", "OTDR Malfunction", "Power Meter Fault", 
-              "Drill Machine Fail", "Source Meter Inaccurate", "Screen Broken (Splicer)", "Motor Stuck", "Electrode Worn Out", 
-              "Laser VFL Weak", "Launch Cable Broken", "Ladder Broken", "Harness/Safety Belt Issue", "Headlight/Torch Battery Dead", 
-              "Crimp Tool Jammed", "Cutter Blunt", "Generator Failed on Site", "Multimeter Burnt", "Splicer Heating Coil Fail"
-            ],
-            "Vehicle Issue": [
-              "Flat Tire", "Engine Overheat", "Battery Dead", "Breakdown", "Accident Minor", 
-              "Fuel Empty", "Police Check", "Keys Locked In", "Brake Failure", "Clutch Cable Snapped", 
-              "Wipers Not Working (Rain)", "Headlight Failure", "RTO Checking/Fines", "Road Tax/Insurance Renew", "Driver Lost Way", 
-              "Stuck in Mud/Slush", "Alternator Issue", "Radiator Leak", "Puncture Kit Missing", "Towing Needed"
-            ],
-            "Site Hazard": [
-              "High Voltage Induction", "Live Wire Touching", "Snake on Site", "Wasp/Bee Attack", "Stray Dog Aggression", 
-              "Toxic Gas (Manhole)", "Chemical Spill", "Slippery/Mossy Roof", "Open Gutter Hazard", "Weak Floor/Ceiling", 
-              "Sharp Debris", "Landslide Risk", "Falling Rocks/Coconuts", "Leech Infestation", "Rodent Threat", 
-              "Extreme Heat Warning", "Fire/Smoke Nearby", "Building Collapse Risk", "Deep Trench Hazard", "Unstable EB Pole"
-            ],
-            "Civil Works Req": [
-              "Trenching Needed", "Pole Planting Req", "Duct Blocked", "Chamber Collapse", "Span Too Long", 
-              "Waterlogging/Pumping", "Asphalt/Tar Cutting", "Concrete Breaking", "Manhole Lid Jammed", "Riser Core Drilling", 
-              "Paving Tile Removal", "Wall Plastering Work", "Drain Desilting Req", "Grouting/Cementing", "Bush/Tree Clearing", 
-              "Digging Rocky Soil", "Shoring Trench", "Excavator (JCB) Needed", "Horizontal Drilling (HDD)", "Compacting Soil"
-            ],
-            "Infra Damage": [
-              "Duct Crushed", "Pole Broken", "Messenger Wire Snap", "Stay Wire Cut", "Manhole Lid Broken", 
-              "Riser Pipe Broken", "OTB Box Smashed", "Cabinet Door Rusted", "Pole Leaning Heavily", "Hook/Clamp Snapped", 
-              "Splicing Closure Cracked", "FMS Rack Bent", "Patch Cord Rat Bitten", "Cable Melted by Fire", "Drop Cable Smashed", 
-              "Customer Router Burnt", "Power Socket Damaged", "Splitter Legs Broken", "Splice Tray Snapped", "Conduit Pipe Crushed"
-            ],
-            "Cable ID Issues": [
-              "Label Missing", "Faded Color Code", "Multiple Bundles", "Tracing Tone Weak", "Map Mismatch", 
-              "Ghost Cable", "Documentation Error", "Wrong Port Tagging", "Customer Name Mismatch", "Old Cable Not Removed", 
-              "Too Many Dead Fibers", "Discrepancy in ERP", "Twisted Cables Together", "Spliced to Wrong Core", "Splitter Port Confused", 
-              "Crossed Fibers", "Fiber Broken inside Jacket", "Non-Standard Color", "Label Ink Smeared", "Tracing Took Hours"
-            ],
-            "Tech/Config Issue": [
-              "High Splice Loss", "Bubble in Joint", "OLT Profile Mismatch", "Mac Bind Stuck", "Firmware Loop", 
-              "Rx Power Low", "High BER", "Port Flapping", "Wrong VLAN Mapped", "Customer Router Config", 
-              "Static IP Conflict", "Distance Limit Exceeded", "Bending Loss High", "Connector Dirty/Scratched", "SFP Faulty/Mismatch", 
-              "Authentication Failed", "Session Kill Required", "Wrong Split Ratio", "Microbend in Cable", "Password Reset Delay"
-            ],
-            "Cust Unavailable": [
-              "Door Locked", "Phone Switched Off", "Out of Station", "Rescheduled by Cust", "Renovation Dust", 
-              "Meeting in Progress", "Sleeping/DND", "Guest at Home", "Key with Neighbor", "Medical Emergency", 
-              "Child Alone at Home", "Refused Entry", "Demanded Specific Time", "Not Picking Calls", "Wrong Number", 
-              "Working in Night Shift", "Did Not Inform Change", "Gate Padlocked", "Angry Customer Delay", "Relocated Recently"
-            ],
-            "Strike/Protest": [
-              "Political Rally", "Labor Union Strike", "Bharat Bandh", "Road Blockade", "Curfew/Section 144", 
-              "Temple/Church Festival", "Local Mob Stopping Work", "Neighborhood Dispute", "Taxi/Auto Strike", "Municipality Protest", 
-              "Activist Group Intervening", "Property Boundary Fight", "Anti-Social Elements", "Tenant vs Owner Fight", "Cable Theft Mob", 
-              "Police Lathicharge", "Vandalism Threat", "Mob Demanding Money", "PWD Contractor Strike", "Election Procession"
-            ],
-            "Terrain/Environment": [
-              "Steep Climb", "Swamp/Marsh", "Sand Dune", "River Crossing", "High Altitude", 
-              "Deep Valley/Gorge", "Thick Jungle Path", "Tunnel Crawl", "Rocky Cliff", "Thorny Bushes", 
-              "Wild Animal Area", "Unstable Bridge", "Water Current High", "Mudslide Area", "Loose Soil/Gravel", 
-              "No Proper Road", "Remote Hamlet", "Hill Top Access", "Coastal Tides High", "Forest Boundary Issue"
-            ]
+            "Rain/Weather": ["Heavy Downpour", "Light Drizzle", "Lightning Hazard", "Storm/Cyclone Warning", "Waiting for Rain Stop", "Post-Rain Cleanup", "Flood/Waterlogging", "High Winds/Gale", "Thunderstorm", "Fog/Low Visibility", "Extreme Heat/Sun", "Hailstorm", "Continuous Monsoons", "Slippery Terrain", "Mud/Slush on Site", "Equipment Protection Prep", "Tarp Setup Required", "Wet Cables/Splicing Issue", "Umbrella Setup Time", "Road Inaccessible due to Rain"],
+            "Traffic/Road Block": ["Peak Hour Jam", "Road Blockage", "VIP Movement", "Narrow Road Access", "Accident on Route", "Police Diversion", "Slow Heavy Vehicle", "Festival/Procession Block", "Construction Traffic", "Toll Plaza Delays", "Parking Unavailable", "Vehicle Breakdown Blocking", "Waterlogged Road", "One-Way Restriction", "Pedestrian Congestion", "Protest Blocking Road", "Railway Crossing Closed", "Bridge Under Repair", "Heavy Fog Traffic Delay", "VVIP Convoy Passing"],
+            "Access - Premises": ["Gate Locked", "Customer Unavailable", "Security Denied", "Secretary Unavailable", "Dog/Pet Hazard", "Biometric Fail", "Key with Neighbor", "Sleeping/DND", "Meeting in Progress", "House Renovation Ongoing", "Intercom Not Working", "Lift Out of Order", "Security Guard Shift Change", "Entry Pass Generation", "Complex Rules/Timing", "ID Proof Required", "RWA Secretary Approval", "Key Holder Not Answering", "Wrong Address Given", "Covid/Health Restriction"],
+            "Access - Cabinet/POP": ["Key Missing", "Lock Rusted/Jammed", "Handle Broken", "Smart Lock Fail", "Door Stuck", "Overgrown Weeds", "Bee Hive Inside", "Water Inside Cabinet", "No Ladder Access", "Blocked by Parked Car", "Rack Space Locked", "Cable Entangled at Door", "Cabinet Buried in Mud", "Building Locked (POP)", "Security Escort Delayed", "Damaged Keyhole", "Previous Tech Kept Key", "Debris Blocking Door", "Floor Flooded (Basement)", "Rat Infestation Inside"],
+            "Permission - Govt": ["KSEB Permit Wait", "PWD Objection", "Corporation Stop Memo", "Traffic Police Stop", "NHAI Permission", "Forest Dept Stop", "Metro Authority", "Municipality Digging Ban", "Panchayat Approval Pending", "Police Station Clearance", "BSNL Authority Issue", "Water Dept (KWA) Work", "Railways Permission", "Canal/Irrigation Dept", "Coastal Regulation Zone", "Heritage Area Rules", "Port Trust Authority", "Highway Patrol Stop", "Election Code Conduct", "Local Ward Member Hold"],
+            "Permission - Private": ["Neighbor Objection", "Landlord Dispute", "RWA Letter Pending", "Shopkeeper Blocking", "Private Road Block", "Compound Entry Denied", "Association Meeting Wait", "Tenant Refusing Access", "Builder Stop Work", "Adjacent Property Crossing", "Mall Management Rule", "Office Admin Approval", "Hospital Zone Rules", "Hotel Security Protocol", "School/College Timing", "Factory Entry Pass", "Flat Owner Not Home", "Boundary Wall Dispute", "Land Dispute Area", "Guard Refused Entry"],
+            "Power - Grid": ["Area Blackout (KSEB)", "Transformer Maint", "Load Shedding", "Low Voltage", "Phase Missing", "Feeder Trip", "Line Fault", "Grid Overload", "High Voltage Fluctuation", "Broken EB Pole", "Tree Fallen on HT Line", "Substation Shutdown", "Preventive Maintenance Cut", "Fuse Blown at Pole", "Lightning Struck Line", "Transformer Blown", "Neutral Wire Snapped", "Feeder Line Sparking", "Area Load Relief", "Power Cut After Rain"],
+            "Power - Local": ["Building DG Fail", "UPS Battery Dead", "Inverter Overload", "Socket Burnout", "No Power Point", "Extension Short", "Generator Fuel Empty", "MCB Tripping", "Wiring Burnt", "Wrong Phase Connected", "Main Switch Off", "Customer Switched Off", "Meter Faulty", "ELCB Tripping", "Loose Contact at Plug", "Generator Auto-Switch Fail", "Low Voltage at Socket", "Extension Cord Cut", "Battery Bulged", "Solar Panel No Output"],
+            "Material Shortage": ["Cable Out of Stock", "Patch Cord Missing", "Pigtail Shortage", "Closure/Joint Kit Missing", "Splitter Unavailable", "Sleeves Finished", "Connectors Empty", "Cable Ties Finished", "Clamp/Hook Missing", "Drop Wire Finished", "Specific Color Missing", "Drum Empty", "Insulation Tape Finished", "Anchoring Accessories", "Patch Panel Port Full", "Rack Screws Missing", "Dust Caps Unavailable", "Splicing Gel Empty", "ODF Tray Missing", "Router/ONU Out of Stock"],
+            "Manpower Issue": ["Splicer on Leave", "Shift Handover Delay", "Helper Unavailable", "Digging Team Late", "Traffic Marshal Missing", "Driver Sick/Leave", "Patroller Delayed", "Technician Injured", "Overtime Fatigue", "Team Assigned Elsewhere", "Reliever Not Arrived", "Miscommunication on Plan", "Guide/Local Help Missing", "Lunch/Food Break", "Out of Station", "Emergency Leave", "Contractor Payment Dispute", "Lack of Trained Staff", "Union Meeting", "Subcontractor Absent"],
+            "Equipment Failure": ["Machine Battery Dead", "Cleaver Blade Dull", "Arc Failure", "OTDR Malfunction", "Power Meter Fault", "Drill Machine Fail", "Source Meter Inaccurate", "Screen Broken (Splicer)", "Motor Stuck", "Electrode Worn Out", "Laser VFL Weak", "Launch Cable Broken", "Ladder Broken", "Harness/Safety Belt Issue", "Headlight/Torch Battery Dead", "Crimp Tool Jammed", "Cutter Blunt", "Generator Failed on Site", "Multimeter Burnt", "Splicer Heating Coil Fail"],
+            "Vehicle Issue": ["Flat Tire", "Engine Overheat", "Battery Dead", "Breakdown", "Accident Minor", "Fuel Empty", "Police Check", "Keys Locked In", "Brake Failure", "Clutch Cable Snapped", "Wipers Not Working (Rain)", "Headlight Failure", "RTO Checking/Fines", "Road Tax/Insurance Renew", "Driver Lost Way", "Stuck in Mud/Slush", "Alternator Issue", "Radiator Leak", "Puncture Kit Missing", "Towing Needed"],
+            "Site Hazard": ["High Voltage Induction", "Live Wire Touching", "Snake on Site", "Wasp/Bee Attack", "Stray Dog Aggression", "Toxic Gas (Manhole)", "Chemical Spill", "Slippery/Mossy Roof", "Open Gutter Hazard", "Weak Floor/Ceiling", "Sharp Debris", "Landslide Risk", "Falling Rocks/Coconuts", "Leech Infestation", "Rodent Threat", "Extreme Heat Warning", "Fire/Smoke Nearby", "Building Collapse Risk", "Deep Trench Hazard", "Unstable EB Pole"],
+            "Civil Works Req": ["Trenching Needed", "Pole Planting Req", "Duct Blocked", "Chamber Collapse", "Span Too Long", "Waterlogging/Pumping", "Asphalt/Tar Cutting", "Concrete Breaking", "Manhole Lid Jammed", "Riser Core Drilling", "Paving Tile Removal", "Wall Plastering Work", "Drain Desilting Req", "Grouting/Cementing", "Bush/Tree Clearing", "Digging Rocky Soil", "Shoring Trench", "Excavator (JCB) Needed", "Horizontal Drilling (HDD)", "Compacting Soil"],
+            "Infra Damage": ["Duct Crushed", "Pole Broken", "Messenger Wire Snap", "Stay Wire Cut", "Manhole Lid Broken", "Riser Pipe Broken", "OTB Box Smashed", "Cabinet Door Rusted", "Pole Leaning Heavily", "Hook/Clamp Snapped", "Splicing Closure Cracked", "FMS Rack Bent", "Patch Cord Rat Bitten", "Cable Melted by Fire", "Drop Cable Smashed", "Customer Router Burnt", "Power Socket Damaged", "Splitter Legs Broken", "Splice Tray Snapped", "Conduit Pipe Crushed"],
+            "Cable ID Issues": ["Label Missing", "Faded Color Code", "Multiple Bundles", "Tracing Tone Weak", "Map Mismatch", "Ghost Cable", "Documentation Error", "Wrong Port Tagging", "Customer Name Mismatch", "Old Cable Not Removed", "Too Many Dead Fibers", "Discrepancy in ERP", "Twisted Cables Together", "Spliced to Wrong Core", "Splitter Port Confused", "Crossed Fibers", "Fiber Broken inside Jacket", "Non-Standard Color", "Label Ink Smeared", "Tracing Took Hours"],
+            "Tech/Config Issue": ["High Splice Loss", "Bubble in Joint", "OLT Profile Mismatch", "Mac Bind Stuck", "Firmware Loop", "Rx Power Low", "High BER", "Port Flapping", "Wrong VLAN Mapped", "Customer Router Config", "Static IP Conflict", "Distance Limit Exceeded", "Bending Loss High", "Connector Dirty/Scratched", "SFP Faulty/Mismatch", "Authentication Failed", "Session Kill Required", "Wrong Split Ratio", "Microbend in Cable", "Password Reset Delay"],
+            "Cust Unavailable": ["Door Locked", "Phone Switched Off", "Out of Station", "Rescheduled by Cust", "Renovation Dust", "Meeting in Progress", "Sleeping/DND", "Guest at Home", "Key with Neighbor", "Medical Emergency", "Child Alone at Home", "Refused Entry", "Demanded Specific Time", "Not Picking Calls", "Wrong Number", "Working in Night Shift", "Did Not Inform Change", "Gate Padlocked", "Angry Customer Delay", "Relocated Recently"],
+            "Strike/Protest": ["Political Rally", "Labor Union Strike", "Bharat Bandh", "Road Blockade", "Curfew/Section 144", "Temple/Church Festival", "Local Mob Stopping Work", "Neighborhood Dispute", "Taxi/Auto Strike", "Municipality Protest", "Activist Group Intervening", "Property Boundary Fight", "Anti-Social Elements", "Tenant vs Owner Fight", "Cable Theft Mob", "Police Lathicharge", "Vandalism Threat", "Mob Demanding Money", "PWD Contractor Strike", "Election Procession"],
+            "Terrain/Environment": ["Steep Climb", "Swamp/Marsh", "Sand Dune", "River Crossing", "High Altitude", "Deep Valley/Gorge", "Thick Jungle Path", "Tunnel Crawl", "Rocky Cliff", "Thorny Bushes", "Wild Animal Area", "Unstable Bridge", "Water Current High", "Mudslide Area", "Loose Soil/Gravel", "No Proper Road", "Remote Hamlet", "Hill Top Access", "Coastal Tides High", "Forest Boundary Issue"]
           },
           "RFO2_MAPPING": {
-            "FAT_OTB_related": [
-              "Action taken by HDO", "FAT/OTB shifted/ replaced - cable re-spliced", "Pigtail/patch cord cleaned/replaced", 
-              "Riser cable damaged due to inbuilding activity", "Secondary splitter replaced", "Single fiber break-re-spliced"
-            ],
-            "Fiber_cut_OH_cable_restored": [
-              "Cable burnt- electric short Circuit", "Cable cut by vehicle", "cable cut- tree cleaning drive", 
-              "Cable damaged- Other Infra works", "Cable damaged-Pole Removal/shifting", "Fiber break inside JC", "Intentional cut by unknown person"
-            ],
-            "Fiber_cut_UG_cable_restored": [
-              "Cable damaged due to nala/culvert cleaning/infra work/Road expansion", "Fiber break inside JC", "Intentional cut by unknown person", "Rodent cut"
-            ],
-            "NFF_Wrong_TT": [
-              "TT auto resolved post power restoration", "TT resolved without any action", "Wrong TT Login - Customer Barred", 
-              "Wrong TT login - Electricity Failure", "Wrong TT login- Planned activity", "No fault found", "TT Cancelled", "False Alarm"
-            ],
-            "ODF_related": [
-              "Connector cleaned at ODF", "ODF damaged by Authority/unknown person- Replaced", "patch cord/pigtail damaged - Replaced", "Primary splitter faulty - Replaced"
-            ],
-            "OLT_related": [
-              "Fiber cut by Rodent inside plant FDMS/patch cord", "PON port fault - Replaced", "PON Port Hang- Resetted", "PON Port swapped", "SFP Faulty- Replaced"
-            ],
-            "Planned_Cutover_Rehab": [
-              "Cable Routing/Sagging corrected", "Cutover activity- PON Changed", "FAT Changed", "FAT Rehab", "FMS/ODF Changed", 
-              "FMS/ODF Rehab", "ODF Cutover", "ODF Rehab", "ODF replaced", "OH cable replaced", "OH to UG", "UG cable replaced", "UG to OH"
-            ],
-            "Auto_TT_Activity_Completed": [
-              "No Fault found", "Planned activity", "Drop wire cut", "Action taken by HDO"
-            ],
-            "Copper_Cable_Cut": [
-              "Cable burnt- electric short Circuit", "Cable cut by vehicle", "cable cut- tree cleaning drive", "Cable damaged- Other Infra works", 
-              "Cable damaged-Pole Removal/shifting", "Intentional cut by unknown person", "Cable damaged due to nala/culvert cleaning/infra work/Road expansion", 
-              "Fiber break inside JC", "Rodent cut", "Copper Theft", "JCB Digging Cut"
-            ],
-            "Copper_Cable_Faulty": [
-              "Copper pair faulty", "Copper joint faulty", "Copper to Ftth"
-            ],
-            "Proactive": [
-              "ERP clearance (New connection core addition)", "Cable sagging correction", "FAT Changed", "FAT Rehab", "FMS Changed", 
-              "FMS Rehab", "ODF Rehab", "FAT Refix", "OTB Refix", "EB drive", "Door closed", "EB Pole shifting drive", "EB Tree cleaning drive", 
-              "Overhead cable replaced", "Overhead to under ground", "underground cable replaced", "Underground to over head", 
-              "Power correction", "JC Sagging Correction", "Own Pole shifting", "Planned Actvity"
-            ]
+            "FAT_OTB_related": ["Action taken by HDO", "FAT/OTB shifted/ replaced - cable re-spliced", "Pigtail/patch cord cleaned/replaced", "Riser cable damaged due to inbuilding activity", "Secondary splitter replaced", "Single fiber break-re-spliced"],
+            "Fiber_cut_OH_cable_restored": ["Cable burnt- electric short Circuit", "Cable cut by vehicle", "cable cut- tree cleaning drive", "Cable damaged- Other Infra works", "Cable damaged-Pole Removal/shifting", "Fiber break inside JC", "Intentional cut by unknown person"],
+            "Fiber_cut_UG_cable_restored": ["Cable damaged due to nala/culvert cleaning/infra work/Road expansion", "Fiber break inside JC", "Intentional cut by unknown person", "Rodent cut"],
+            "NFF_Wrong_TT": ["TT auto resolved post power restoration", "TT resolved without any action", "Wrong TT Login - Customer Barred", "Wrong TT login - Electricity Failure", "Wrong TT login- Planned activity", "No fault found", "TT Cancelled", "False Alarm"],
+            "ODF_related": ["Connector cleaned at ODF", "ODF damaged by Authority/unknown person- Replaced", "patch cord/pigtail damaged - Replaced", "Primary splitter faulty - Replaced"],
+            "OLT_related": ["Fiber cut by Rodent inside plant FDMS/patch cord", "PON port fault - Replaced", "PON Port Hang- Resetted", "PON Port swapped", "SFP Faulty- Replaced"],
+            "Planned_Cutover_Rehab": ["Cable Routing/Sagging corrected", "Cutover activity- PON Changed", "FAT Changed", "FAT Rehab", "FMS/ODF Changed", "FMS/ODF Rehab", "ODF Cutover", "ODF Rehab", "ODF replaced", "OH cable replaced", "OH to UG", "UG cable replaced", "UG to OH"],
+            "Auto_TT_Activity_Completed": ["No Fault found", "Planned activity", "Drop wire cut", "Action taken by HDO"],
+            "Copper_Cable_Cut": ["Cable burnt- electric short Circuit", "Cable cut by vehicle", "cable cut- tree cleaning drive", "Cable damaged- Other Infra works", "Cable damaged-Pole Removal/shifting", "Intentional cut by unknown person", "Cable damaged due to nala/culvert cleaning/infra work/Road expansion", "Fiber break inside JC", "Rodent cut", "Copper Theft", "JCB Digging Cut"],
+            "Copper_Cable_Faulty": ["Copper pair faulty", "Copper joint faulty", "Copper to Ftth"],
+            "Proactive": ["ERP clearance (New connection core addition)", "Cable sagging correction", "FAT Changed", "FAT Rehab", "FMS Changed", "FMS Rehab", "ODF Rehab", "FAT Refix", "OTB Refix", "EB drive", "Door closed", "EB Pole shifting drive", "EB Tree cleaning drive", "Overhead cable replaced", "Overhead to under ground", "underground cable replaced", "Underground to over head", "Power correction", "JC Sagging Correction", "Own Pole shifting", "Planned Actvity"]
           },
           "REASON_MAPPING": {
-            "Action taken by HDO": [
-              "Remote Port Reset Performed", "MAC Binding Cleared", "Bandwidth Profile Reconfigured", "ONT Firmware Pushed", "Admin Status Toggled", "Dormant Session Kicked", "VLAN Remapped", "IP Lease Released Manually", "Optical Threshold Adjusted", "Port Bounced/Restarted", "Customer Password Reset", "WiFi Channel Optimization", "Speed Provisioning Fixed", "Authentication Server Synced", "Rogue ONT Blocked", "FEC Error Handled", "T-CONT Reallocated", "DBA Profile Updated", "Loopback Test Passed", "Billing Sync Error Resolved"
-            ],
-            "FAT/OTB shifted/ replaced - cable re-spliced": [
-              "Pole Replacement by KSEB", "Road Widening Impact", "Property Wall Reconstruction", "Customer Relocation Request", "Box Smashed by Vehicle", "Severe Rusting/Corrosion", "Capacity Exhaustion (Upgrade)", "Fire Damage to Enclosure", "Tree Fall Destroyed Box", "Water Logging at Base", "Termite Infestation in Wood Pole", "Vandalism/Theft of Box", "Re-alignment for Aesthetics", "Shifted from Private to Public", "Tension Rupture Replacement", "Lightning Strike Melt", "Unsafe Hanging Box Fixed", "Shifting due to Drainage Work", "Box Lid Hinge Broken", "Re-spliced due to Internal Port Fail"
-            ],
-            "Pigtail/patch cord cleaned/replaced": [
-              "High Attenuation at Connector", "Ferrule Scratched/Pitted", "Broken Locking Clip", "Severe Macrobend in Cord", "Rat Chewed Patch Cord", "Dust Contamination on Core", "Moisture/Condensation in Port", "Burn Spot on Ferrule", "Tensile Strain/Pull Damage", "Jacket Peeled/Exposed", "Mismatched Connector Type", "Endface Oil/Smudge", "Fiber Snapped at Boot", "Defective Factory Splice", "Upgraded to Bend-Insensitive", "Tangle/Kink Damage", "Cleaned after Civil Work Dust", "Replaced for Standard Color Code", "Port Shift Required Longer Cord", "Poor Splice at Pigtail Joint"
-            ],
-            "Riser cable damaged due to inbuilding activity": [
-              "Plumber Cut Duct", "Electrician Pulled Wrong Cable", "AC Installation Drilling", "False Ceiling Collapse", "Elevator Shaft Maintenance", "Painter Scraped/Cut Jacket", "Intercom Wiring Entanglement", "Flooring/Tile Cutting", "Rodent Bite in Riser", "Sharp Edge Chafing", "Vandalism by Tenant", "Door/Window Pinch", "Carpet Laying Staples", "Fire Alarm Contractor Cut", "Overcrowded Shaft Crush", "Furniture Moving Snag", "Internal Renovation Drill", "CCTV Installer Severed", "Internet Rival Sabotage", "Ceiling Rat Trap Damage"
-            ],
-            "Secondary splitter replaced": [
-              "High Insertion Loss", "Uneven Port Splitting", "Splitter Input Leg Snapped", "Defective Splitter Chip", "Water Ingress in Module", "Output Port Blocked/Stuck", "Upgraded 1:4 to 1:8", "Burnout from High Power", "Temperature Cycle Microcracking", "Rodent Chewed Splitter Legs", "Vandalized/Pulled Out", "Connector Boot Failed", "Refractive Index Mismatch", "Splitter Box Melted", "Splice Tray Pinching Leg", "Replaced during FAT Rehab", "Port Dust Cap Missing/Ruined", "Macrobending inside Cassette", "Defective Polish at Factory", "Leg Entangled and Snapped"
-            ],
-            "Single fiber break-re-spliced": [
-              "Splice Protector Snapped", "Cleave Angle Defect", "High Splice Loss Correction", "Bubble in Fusion Splice", "Microbend near Splice", "Tension Break in Tray", "Slack Loop Pinched", "Tube Strain/Shrinkage", "Spliced to Wrong Core (Fix)", "Exposed Bare Fiber Broke", "Re-splice after OTDR Fault", "Water Freezing inside Closure", "Fiber Slippage in V-Groove", "Contaminated Splice Cleared", "Rodent Nibbled Single Core", "Over-bending in Cassette", "Splice Machine Arc Failure Fix", "Technician Handling Break", "Core Mismatch Corrected", "Strain Relief Failure"
-            ],
-            "Cable burnt- electric short Circuit": [
-              "Touching HT Power Line", "Transformer Explosion Sparks", "Arc Flash from 11kV Line", "Neutral Wire Dropped on Fiber", "Insulation Melted by Heat", "Garbage Burning below Pole", "Streetlight Wiring Short", "Illegal Power Tap Sparking", "Lightning Strike Induction", "Short Circuit at KSEB DP", "Fireworks/Cracker Burn", "Building Fire Spread", "Transformer Oil Leak Fire", "Welding Sparks from Construction", "Chemical Combustibility", "Temporary Electric Line Cross", "Cable Tied to Live Wire", "High Tension Sagging Contact", "Earthing Leakage Arc", "Vehicle Fire Melted Cable"
-            ],
-            "Cable cut by vehicle": [
-              "Over-height Truck Snag", "Bus Roof Collision", "Container Lorry Hook", "Crane Arm Swing", "Car Crashed into Pole", "Road Resurfacing Reduced Clearance", "JCB Excavator Reversing", "Garbage Truck Lift Mechanism", "Fire Engine Ladder Hit", "Tractor/Harvester Mowing", "Cement Mixer Chute", "Towing Cable Entanglement", "Double Decker Bus Pass", "Military Convoy Hit", "House Moving Transporter", "Forklift Mast Raised", "Delivery Van Door Open", "Dump Truck Bed Lifted", "Tree Pruning Vehicle", "Speeding Vehicle Dragged Down"
-            ],
-            "cable cut- tree cleaning drive": [
-              "KSEB Scheduled Trimming", "Municipality Pruning", "Private Landowner Machete", "Falling Coconut Impact", "Storm Debris Cleanup Cut", "Bamboo Cluster Chopping", "Palm Frond Dropping", "Mechanized Saw Hit", "Fruit Plucking Pole Hook", "Tree Uproot Dragging", "Hedge Trimmer Slip", "Chainsaw Severed Wire", "Vine/Creeper Removal Cut", "Root Clearing Dig Hit", "Stump Grinding Vibration", "Branch Tension Snap", "Cable Entangled in Falling Limb", "Axe Glanced off Wood", "Contractor Carelessness", "Emergency Fire Break Cutting"
-            ],
-            "Cable damaged- Other Infra works": [
-              "KWA Pipe Digging", "PWD Road Tarring", "Smart City Duct Work", "Metro Rail Foundation", "Gas Pipeline Trenching", "Cable TV Stringing Override", "Street Light Pole Base Repair", "CCTV Camera Installation", "Advertising Board Mounting", "Footpath Tiling/Paving", "Solar Panel Grid Wiring", "Fence Construction Drill", "Bridge Painting/Scraping", "Traffic Light Induction Loop", "Bus Stop Shelter Build", "Speed Breaker Construction", "Manhole Leveling Crush", "Signpost Concrete Digging", "Sewer Line Jetting", "Underground Railway Work"
-            ],
-            "Cable damaged-Pole Removal/shifting": [
-              "Road Widening Pole Shift", "Old Rusted Pole Collapse", "Unplanned Municipality Removal", "Leaning Pole Tension Drop", "Base Foundation Failure", "Vehicle Hit Required Shift", "Private Property Owner Eviction", "New Pole Insertion Crush", "Safety Hazard Relocation", "Temporary Shift for Bridge", "Concrete Pouring Stress", "Earthmover Knocked Base", "Guy Wire Snapped", "Cable Transfer Mishandling", "Pole Climbing Spikes Cut", "Ladder Stress Break", "Safety Belt Pinch on Cable", "Pulley Block Squeezed", "Winch Tension Snap", "Crane Lifting Force"
-            ],
-            "Fiber break inside JC": [
-              "Water Accumulation/Freezing", "Ant/Termite Nest Building", "Crushed by Heavy Vehicle", "Manhole Lid Collapsed onto JC", "Joint Closure Aged/Cracked", "Overcrowded Tray Pinch", "Sleeve Slipped off Splice", "Temperature Expansion/Contraction", "O-Ring Seal Failed", "Bolt Failure due to Rust", "Chemical Seepage Dissolved Buffer", "Root Intrusion Crushed Core", "Vibration Disconnected Fiber", "Gel Leakage/Drying", "Tray Latch Broke and Dropped", "Buffer Tube Kinked", "Strength Member Rusted/Snapped", "Technician Rough Handling", "Label Ink Corroded Cladding", "Rodent Nested Inside"
-            ],
-            "Intentional cut by unknown person": [
-              "Local ISP Rivalry", "Pure Vandalism", "Failed Cable Theft Attempt", "Anti-social Elements Prank", "Property Dispute Boundary Cut", "Labor Union Strike Action", "Drunkard Nuisance", "Political Protest Blockade", "Competitor Sabotage", "Building Security Cleared Wires", "Kite String (Manja) Removal", "Festival Decoration Clearing", "Political Banner Hanging", "Scrap Collector Mistake", "Mental Instability Act", "Gang Turf War Damage", "Tenant vs Landlord Spite", "Copper Theft Confusion", "Kids Prank/Play", "Disgruntled Ex-Employee"
-            ],
-            "Cable damaged due to nala/culvert cleaning/infra work/Road expansion": [
-              "JCB Bucket Scrape", "Pickaxe/Crowbar Hit", "Horizontal Directional Drilling (HDD)", "Drain Desilting Machine Claw", "Road Tarring Heat Melt", "Roller Vibration Fracture", "Pavement Block Laying", "Storm Water Drain Deepening", "Bridge Expansion Joint Work", "Retaining Wall Collapse Impact", "Culvert Rebuilding Crush", "Waste Removal Claw Hook", "Road Grader Blade Slice", "Soil Compactor Pressure", "Asphalt Cutter Sliced", "Jackhammer Vibration Snap", "Survey Stake Driven Through", "Dredging Machine Hook", "Gabion Wall Rock Crush", "Bulldozer Track Pinch"
-            ],
-            "Rodent cut": [
-              "Rat Bite in Underground Duct", "Termite Attack on Wood Pole", "Squirrel Gnawed OH Cable", "Bandicoot Burrowing in Trench", "Cable Sheath Eaten Away", "Nesting Material Harvested", "Entry via Broken Manhole", "Food Waste Dump Nearby", "Soft Soil Entry Point", "Riser Shaft Rat Colony", "False Ceiling Rat Trap", "Cabinet Entry via Vent", "Chewing Through PVC Pipe", "Dead Animal Corrosion", "Bird Pecking Outer Jacket", "Monkey Biting/Swinging", "Dog Chewing Drop Wire", "Cat Scratching FMS", "Bat Hanging/Guano Acidity", "Insect Borehole Damage"
-            ],
-            "TT auto resolved post power restoration": [
-              "Area Power Grid Returned", "Building DG Set Turned On", "UPS Battery Automatically Recharged", "Phase Correction at Transformer", "Grid Frequency Stabilized", "Transformer Fixed by KSEB", "Fuse Replaced at Pole", "Solar Backup Activated", "Main Line Power Restored", "Customer Paid EB Bill", "Switchboard MCB Reset", "Inverter Auto-Switched", "Prepaid Meter Recharged", "Voltage Stabilizer Recovered", "Diesel Refilled in DG", "Wind Power Kick-in", "Substation Relay Reset", "Feeder Switch Closed", "Isolator Fault Cleared", "Surge Protector Reset"
-            ],
-            "TT resolved without any action": [
-              "Self-Healing Network Protocol", "Transient Line Glitch Cleared", "Loose Contact Automatically Settled", "Customer Restarted Modem", "False LOS Alarm Cleared", "Line Parameters Stabilized", "Duplicate Ticket Merged", "System Sync Error Fixed", "Auto-Recovery Script Ran", "Intermittent Power Fluctuation Ended", "Cable Swing Settled", "Bird Flew Off Line", "Temperature Dropped to Normal", "Sun Outage Passed", "Fog/Humidity Cleared", "Rain Stopped/Dried", "Vibration Source Stopped", "RF Interference Dissipated", "User Plugged Cable Back", "Background Patch Deployed"
-            ],
-            "Wrong TT Login - Customer Barred": [
-              "Bill Unpaid Suspension", "FUP Limit Exhausted", "Prepaid Plan Expired", "Safe Custody Status Active", "KYC Document Pending", "MAC Binding Violation", "Device Blacklisted by Admin", "Abuse/Fraud Block Applied", "Credit Limit Crossed", "Porting Out Request Pending", "Payment Gateway Delay", "Admin Suspended Account", "Static IP Revoked", "Voluntary Disconnection Request", "Child Lock/Parental Control Enabled", "Legal Dispute Sealing", "Security Audit Hold", "Multiple Wrong Passwords Lock", "Subscription Renewed Late", "Profile Sync Failed at Billing"
-            ],
-            "Wrong TT login - Electricity Failure": [
-              "Complete Area Blackout", "Building Scheduled Power Cut", "Maintenance at Substation", "Transformer Blown Locally", "HT Line Fault", "Pole Fuse Blown", "Customer Switched Off Main", "Grid Failure/Collapse", "Storm Outage", "Bill Non-Payment (Electricity)", "Internal House Wiring Fault", "Generator No Fuel Available", "UPS Battery Completely Dead", "Socket/Plug Burnt Out", "ELCB/MCB Tripped", "Voltage Surge Protective Cut", "Phase Loss in 3-Phase", "Digital Meter Fault", "Solar Inverter Trip", "Earthing Leakage Cutoff"
-            ],
-            "Wrong TT login- Planned activity": [
-              "Pre-informed Downtime Window", "Core Network Upgradation", "Fiber Route Relocation", "Backend Server Maintenance", "OLT Chassis Upgrade", "Preventive Splicing Work", "Node Splitting Operation", "Backhaul Microwave Maint", "Power Plant Battery Swap", "Capacity Expansion Addition", "Fiber Ring Switchover", "System Database Migration", "Software/Firmware Patching", "Vendor Hardware Swap", "Annual Security Audit", "Core Router Updation", "Aggregation Switch Swap", "Cooling System Overhaul", "Fire Safety Drill Outage", "Routine Cable Grooming"
-            ],
-            "No fault found": [
-              "Power Returned Automatically", "Customer Restarted Router", "Transient Line Noise Cleared", "Loose Connector Settled", "ISP Backhaul Restored", "Micro-bend Relaxed", "False LOS Alarm Cleared", "Software Auto-Update Fix", "IP Lease Renewed Automatically", "DNS Cache Flushed", "Bandwidth Congestion Cleared", "Interference Source Gone", "Temperature Normalized", "Voltage Stabilized", "Optical Signal Within Limit", "Device Overheated and Cooled", "Firmware Reset by Customer", "Device Rebooted via App", "Remote Configuration Synced", "Authentication Token Renewed"
-            ],
-            "TT Cancelled": [
-              "Customer Requested Closure", "Duplicate Issue Logged", "Wrong Customer ID Given", "Addressed in Master Outage TT", "Out of Service Scope", "Access Permanently Denied", "Customer Shifted Home", "Plan Downgrade Wait", "Test Ticket Closed", "Logged by Mistake", "Merged with Area Outage", "Customer Unreachable 3x", "Address Not Traceable", "Site Not Ready for Install", "Payment Not Realized", "Third Party Infrastructure Delay", "Weather Forced Postponement", "Language Barrier Cancel", "Equipment Not Returned", "Sales Lead Reversal"
-            ],
-            "False Alarm": [
-              "NMS Sync Delay", "Customer Misinterpreted LEDs", "Transient Optical Spike", "Auto-Healed Before Dispatch", "Duplicate System Trigger", "False LOS from Local Power Cut", "Alarm Cleared Post Reboot", "Threshold Fluctuation", "Backend Server Glitch", "Testing Triggered Alarm", "SFP Monitoring Glitch", "Port Flap Resolved Quickly", "Temporary Mac Collision", "Routing Loop Cleared", "SNMP Poller Timeout", "Weather Interference", "API Communication Fail", "Scheduled Backup Interruption", "Customer Unplugged Briefly", "App Display Error"
-            ],
-            "Connector cleaned at ODF": [
-              "Dust on Ferrule Face", "Fingerprint Smudge", "Oil/Grease Residue", "Protective Cap Missing", "Insert/Removal Scraping Dust", "Rack Vibration Shook Dust", "Construction Dust Nearby", "AC Vent Blew Dust", "Old Connector Oxidation", "High Loss Alarm Triggered", "Liquid/Condensation Spill", "Lint from Cleaning Cloth", "Scratch Polish Fixed", "Static Charge Attracted Dust", "Insect Debris Inside", "Tobacco Smoke Film", "Cleaning Fluid Residue", "Skin Flakes/Dandruff", "Paint Particles Airborne", "Micro-Corrosion Dust"
-            ],
-            "ODF damaged by Authority/unknown person- Replaced": [
-              "Access by Unauthorized Staff", "Rack Door Forced Open", "Pure Vandalism", "Accidental Bump by Trolley", "Cleaning Staff Sweeper Hit", "Construction Debris Smash", "Pest Control Chemical Damage", "Water Leakage on Rack", "Fire Incident Nearby", "Severe Rust/Corrosion", "Theft of Internal Parts", "Short Circuit Fire Melt", "Wall Collapse onto Rack", "Door Lock Broken/Jammed", "Panel Denting/Crush", "Screwdriver Stab Sabotage", "Hammer Hit Vibration", "Graffiti Paint Over Ports", "Glue Sabotage in Ports", "Magnetic Damage to Rack"
-            ],
-            "patch cord/pigtail damaged - Replaced": [
-              "Rat Bite inside Rack", "Door Pinch on Closing", "Tight Bending Radius Violation", "Velcro Strapped Too Tight", "Technician Pulled Violently", "Old/Brittle Jacket Cracked", "Connector Snapped Off", "Polishing Failed at Factory", "Fiber Core Cracked Internally", "Length Shortage/Stretching", "Crushed by Splice Tray", "Heat Damage/Melted", "Zip Tie Cut into Fiber", "Weight Hanging on Cord", "Twisting Stress Break", "Kinked Cable Jacket", "Jacket Abrasion against Metal", "Boot Detached from Connector", "Ferrule Chipped", "Spring Jam inside Connector"
-            ],
-            "Primary splitter faulty - Replaced": [
-              "High Insertion Loss on Input", "No Output Light Detected", "Splitter Leg Broken", "Internal Connector Burnout", "Manufacturing Defect in Chip", "Optical Power Surge", "Water Entry in Module", "Rust on Metal Components", "Loose Contact Internally", "Wavelength Dependent Loss", "Return Loss Too High", "Port Isolation Failed", "Physical Housing Crack", "Input Fiber Snapped inside", "Temperature Drift Failure", "Directivity Failed", "Uniformity Specification Failed", "Polarization Dependent Loss (PDL)", "Packaging Vacuum Leak", "Internal Fiber Curl Break"
-            ],
-            "Fiber cut by Rodent inside plant FDMS/patch cord": [
-              "Rat Chewed Pigtails", "Bandicoot Nest in Rack", "Termite Infested False Floor", "Squirrel Entered via AC Duct", "Rodent Bit Feeder Core", "Mice in Cable Trench", "Chewed Rack Base Wires", "Fiber Broken by Nesting", "Food Scraps Attracted Pests", "Unsealed Cable Entry Tube", "Rat Caught in Fan Tray", "Chewed Through Label Tags", "Pest Repellent Evaporated", "Vertical Shaft Rodent Entry", "Underfloor Raceway Damage", "Gnawed Splitter Input", "Mice Found inside ODF", "Patch Panel Nibbled", "Duct Sealant Breached", "Rodent Droppings Caused Short"
-            ],
-            "PON port fault - Replaced": [
-              "Laser Emitter Burnout", "Receiver Sensitivity Drop", "High Bit Error Rate (BER)", "Continuous Port Flapping", "No TX Light Output", "Hardware Chipset Failure", "Power Surge Damage", "Card Overheated", "Firmware Corruption", "MAC Table Overflow", "Buffer Memory Fault", "Backplane Pin Bent", "SFP Cage Damaged", "Alloc-ID Exhaustion", "T-CONT Scheduling Error", "Ranging Procedure Failed", "DBA Algorithm Crash", "VLAN Tagging Fault", "Port Locked Admin State", "I2C Bus Error"
-            ],
-            "PON Port Hang- Resetted": [
-              "Software Glitch/Bug", "Memory Buffer Full", "Routing Process Stuck", "Firmware Update Pending", "Config Mismatch Sync Error", "MAC Table Full/Stuck", "Broadcast Storm Overload", "Traffic Overload Spike", "Session Timeout Freeze", "Protocol Negotiation Error", "Rogue ONU Caused Noise", "Database Lock on OLT", "CPU High Usage Freeze", "Queue Congestion Drop", "Watchdog Timer Reset", "Memory Leak Crash", "Thread Deadlock", "Stack Overflow Error", "Interrupt Storm", "Cache Coherency Issue"
-            ],
-            "PON Port swapped": [
-              "Suspected Port Fault", "Testing / Diagnostics Purpose", "Load Balancing Traffic", "Complete Card Failure", "Port Upgrade Req", "SFP Incompatible with Port", "Physical Connector Issue", "Backplane Communication Issue", "Licensing Issue on Port", "VLAN Mapping Issue Fixed", "Port Capacity 100% Full", "Signal Strength Optimization", "Interference Check Swap", "Customer VIP Migration", "Slot Optimization", "Port Isolation Test", "Splitter Group Moved", "Service Class Move", "Test Traffic Generation", "Redundancy / Failover Check"
-            ],
-            "SFP Faulty- Replaced": [
-              "Laser Burnout Inside SFP", "Low TX Power Emitted", "Receiver Sensitivity Loss", "I2C Communication Error", "High Temperature Shutdown", "Incompatible Module Inserted", "Connector Locking Clip Failed", "Electrical Short in Cage", "Dust Inside SFP Optics", "Aging Component Failure", "Wavelength Drift off Center", "Bias Current Too High", "Voltage Sag Damage", "EEPROM Read Error", "Extraction Latch Broken", "EMI Interference Issue", "RX Overload / Saturation", "TX Disable Pin Stuck", "LOS False Triggering", "Serial Number Authentication Error"
-            ],
-            "Cable Routing/Sagging corrected": [
-              "High Wind Loosened Ties", "Pole Tilt Slackened Cable", "Clamp Failure on Span", "Heavy Rain Added Weight", "Vehicle Height Hazard Hit", "Tree Branch Resting on Cable", "Old Cable Natural Stretch", "Improper Initial Stringing", "Hook Bend/Deformation", "Public Complaint of Sagging", "Monkey/Bird Swing Damage", "Pole Band Slippage", "Temperature Expansion Elongation", "Road Level Raised by Tarring", "Safe Height Regulation Enforced", "Building Construction Hazard", "Temporary Rope Tie Failed", "Cable Tie Degradation", "Spacer Bar Missing", "Vibration Damper Failed"
-            ],
-            "Cutover activity- PON Changed": [
-              "Load Balancing OLTs", "Network Segmentation Project", "Line Card Upgrade", "OLT Migration to New Site", "Route Diversion for Civil Work", "Capacity Fill Management", "Optical Signal Improvement", "Legacy Hardware Removal", "Tech Refresh (GPON to XGS)", "Scheduled Maintenance Window", "Node Splitting to Reduce Load", "Fiber Path Optimization", "Power Budget Correction", "Protection Path Reconfiguration", "Port Consolidation/Cleanup", "IP Subnet IP Change", "VLAN Remapping Scheme", "Bandwidth Upgrade Support", "QoS Policy Implementation", "Security Zone Movement"
-            ],
-            "FAT Changed": [
-              "Severely Rusted/Corroded Box", "Door/Hinge Completely Broken", "Water Leakage destroying Internals", "Ant/Insect Infestation Permanent", "Burnout/Fire Damage", "Capacity Full Need Bigger Box", "Vandalism/Theft Replacement", "Wall Collapse forced change", "Customer Relocation Request", "Locking Mechanism Destroyed", "Pole Collision Smashed Box", "Termite Damage to Backing", "Internal Splice Tray Hinge Broken", "Sealant Failure Unrepairable", "Building Paint/Renovation Damage", "UV Radiation Cracked Plastic", "Hinge Pin Rusted Solid", "Rubber Gasket Failed", "Mounting Bracket Snapped", "Color Code Fading/Unreadable"
-            ],
-            "FAT Rehab": [
-              "Thorough Cleaning/Dusting", "Internal Fiber Dressing/Routing", "Labeling/Tagging Updated", "Missing Port Caps Replaced", "Splitter Testing & Cleaning", "Splice Tray Re-organization", "Sealing Gaps with Silicon", "Rust Treatment Applied", "Tightening Loose Screws/Clamps", "Removing Old/Dead Drop Wires", "Velcro Replacement", "Cable Tie Refresh", "Fiber Bend Radius Corrected", "Heat Sleeve Protection Added", "Identification Tagging Re-done", "Silicon Gel Re-application", "Entrance Gland Fixed", "Splice Tray Re-seated", "Fiber Slack Loop Organized", "Insect Repellent Spray Applied"
-            ],
-            "FMS/ODF Changed": [
-              "Insufficient Rack Space", "Door/Hinge Damaged Beyond Repair", "Severe Rodent Damage to Chassis", "Water Entry Rusted Rack", "Fire/Heat Deformation", "High Capacity Upgrade Required", "Port Alignment Damage", "Tray Lock Mechanism Failed", "Glass/Metal Frame Bent", "Relocation of Exchange/OLT", "Backplane Mounting Failure", "Integrated Fan Cooling Failed", "Grounding Stud Snapped", "Aesthetic Modernization Upgrade", "Physical Distortion from Quake", "Seismic Brace Failure", "Power Strip Integrated Failure", "Cable Manager Arms Broken", "Side Panel Missing/Stolen", "Master Lock Key Lost Permanently"
-            ],
-            "FMS/ODF Rehab": [
-              "Comprehensive Connector Cleaning", "Fiber Pigtail Dressing", "Labeling/Tagging Audit", "Splice Tray Re-Organization", "Removing Dead Patch Cords", "Velcro Strap Replacement", "Port Dust Caps Installed", "Grounding Continuity Checked", "Cable Tie Refresh", "Slack Cable Management", "Adapter Panel Alignment Fixed", "Pigtail Routing Inspected", "Rust Prevention Applied", "Door Latch/Lock Lubricated", "Fiber Bend Radius Verified", "Airflow Blockage Cleared", "Power Cable Routing Separated", "Alarm Contact Checked", "Floor Mounting Bolts Tightened", "Overhead Cable Tray Aligned"
-            ],
-            "ODF Cutover": [
-              "Load Balancing Network", "Segmentation Project", "Core Card Upgrade", "OLT Hardware Migration", "Route Diversion Implementation", "Capacity Fill Re-allocation", "Signal Quality Improvement", "Legacy ODF Removal", "Tech Refresh Protocol", "Maintenance Window Shift", "Node Splitting Distribution", "Fiber Path Redundancy Opt", "Power Budget Re-calculation", "Protection Path Config Switch", "Port Consolidation Effort", "IP Subnet Alteration", "VLAN Remapping Procedure", "Bandwidth Upgrade Support", "QoS Policy Change Switch", "Security Zone Compartmentalization"
-            ],
-            "ODF Rehab": [
-              "Connector Polishing/Deep Clean", "Pigtail Un-tangling & Dressing", "Identification/Tag Verification", "Tray Sorting by Color Code", "Rodent Proofing Mesh Install", "Rust Removal and Painting", "Door Alignment Corrected", "Unused Core Proper Termination", "Cable Routing Paths Fixed", "Screw/Nut Hardware Tightening", "Damaged Adapter Replacement", "Heat Shrink Integrity Check", "Grounding Continuity Restored", "Dust Filter Clean/Replace", "Label Renewal with Printouts", "Module Reseating in Slots", "Safety Cover Replacement", "Warning Sticker Update", "Fiber Guide Spool Install", "Backplane Dusting/Vacuuming"
-            ],
-            "ODF replaced": [
-              "Unauthorized Access Damage", "Rack Door Forced/Pried Open", "Vandalism to Chassis", "Accidental Bump by Heavy Equip", "Cleaning Staff Sweeper Smash", "Construction Debris Crush", "Pest Control Chemical Melt", "Roof Water Leakage on Rack", "Fire Incident Smoke/Melt", "Rust/Corrosion Collapse", "Theft of Internal Trays", "Short Circuit Fire Damage", "Wall/Ceiling Collapse on Rack", "Door Lock Mechanism Broken", "Panel Denting Severe", "Screwdriver Stab Sabotage", "Hammer Hit Vibration Crack", "Graffiti Paint ruined Ports", "Glue Sabotage in Adapters", "Magnetic Pulse Damage"
-            ],
-            "OH cable replaced": [
-              "High Attenuation/Aging", "Too Many Joints/Cuts on Span", "Squirrel/Rodent Bites Widespread", "Sheath Crack/Peeling Extensive", "Burn/Fire Damage Partial Melt", "Low Fiber Count (Capacity Upgrade)", "Route Diversion for Civil Work", "Voltage Induction Interference", "Tree Branch Rubbing Frayed Jacket", "Temporary Cable Made Permanent", "Bird Pecking Damage Over Time", "Shotgun/Pellet Accidental Damage", "Kite Manja Entanglement Cuts", "Clamp Compression Rupture", "UV Degradation Brittle Plastic", "Heavy Ice/Snow Load Sag", "Vandalism Slash Marks", "Bullet Hole Damage", "Lightning Strike Burn Mark", "Acid Rain/Chemical Corrosion"
-            ],
-            "OH to UG": [
-              "Aesthetics/Smart City Mandate", "Road Widening Force", "Frequent OH Cuts Reduction", "High Reliability Enterprise Req", "KSEB Pole Removal Order", "Metro/Bridge Work Conflict", "Customer/Building Premium Request", "Municipal Authority Mandate", "Flyover Construction Clearance", "Heritage Zone Rules", "Monsoon Storm Safety Prep", "High Wind Area Precaution", "Copper/Fiber Theft Prevention", "Standardization Project Code", "Urban Planning Alignment", "Tunnel Project Requirement", "Airport Zone No-Fly Rule", "Coastal Protection Salt Avoidance", "River Crossing Security", "Defense Area Security Rule"
-            ],
-            "UG cable replaced": [
-              "Rodent/Termite Sub-soil Damage", "Water Ingress Causing High Loss", "Construction Digging Severe Damage", "Depth Issue Shallow Trench", "Road Expansion Crushed Conduit", "Cable Aging/Brittle Underground", "Capacity Upgrade Need More Cores", "Route Diversion for Foundation", "Joint Failure inside Buried Closure", "Soil Erosion/Exposure", "Chemical/Sewage Contamination", "Crushed by Shifting Rock", "Tree Root Intrusion", "Manufacturing Defect in Sheath", "Lightning Strike Ground Surge", "HDD Drill Hit Directly", "Soil Acid Corrosion", "Landslide Shear Stress", "River Bed Shift Break", "Ice Heave Damage Winter"
-            ],
-            "UG to OH": [
-              "Bridge/Culvert Reconstruction Block", "Permission Denied for UG Digging", "Trenching Difficulty (Rocky Terrain)", "Water Logging Area Risk", "Land Dispute/Blockage for Trench", "Cost Optimization for Route", "Temporary Restoration Need", "Hard Soil/Bedrock Immobile", "Stream/River Crossing Span", "Road Tarring Restriction (No Dig)", "Utility Clash (Gas/Water Main)", "Heritage Site Digging Restriction", "Emergency Quick Restoration", "Highway Crossing Boring Issue", "Soil Instability/Marsh", "Swamp Area Routing", "Protected Forest Dig Rule", "Archaeological Site Rule", "Private Road Digging Block", "Quick Deploy Military/VIP Req"
-            ],
-            "Planned activity": [
-              "Network Capacity Augmentation", "OLT Node Splitting", "Fiber Ring Redundancy Closure", "Backhaul Microwave to Fiber Upg", "Tech Refresh (GPON to XGSPON)", "Core Switch Software Patching", "Preventive Splicing Maintenance", "Link Protection Failover Test", "Safety Audit Compliance Work", "Power Plant Battery Servicing", "AC Cooling System Service", "Fire Safety Drill Outage", "Rack Re-organization Clean", "Asset Tagging/Labeling Drive", "Battery Bank Replacement Swap", "Rectifier Module Addition", "Switch VLAN Config Change", "Database Migration Sync", "Security Patch Firewall Update", "Old Cable Decommissioning"
-            ],
-            "Drop wire cut": [
-              "Tree Trimming Severed Cable", "Vehicle Hit Low Hanging Wire", "Door Pinch Snapped Cable", "Window Crush Damage", "Rat/Squirrel Chewed Core", "Children Playing Cut with Scissors", "House Renovation/Painting Cut", "Furniture Moving Snag", "Ladder Hit while Climbing", "Vandalism/Intentional Neighbor", "Roof Tile Replacement Crush", "Garden Tool/Machete Hit", "Pet Dog/Cat Chewed Cable", "Wind Snapped Stretched Wire", "Gate Hinge Crushed Wire", "Curtain Rail Drill Hit Wire", "Shelf Installation Screw Damage", "Vacuum Cleaner Pulled Plug", "Gaming Chair Rolled Over Fiber", "Aesthetic Removal by Owner"
-            ],
-            "Copper Theft": [
-              "Night Theft Activity Gang", "Scrap Collector Cut & Run", "Vandalism Group Act", "Unsecured Chamber Entry", "Pole Climber Organized Theft", "Construction Site Night Theft", "Abandoned Area Copper Stripping", "Organized Syndicate Activity", "Lock Broken on DP Box", "Cable Cut & Pulled via Truck", "Missing Cable Splice Chunk", "Stolen from Underground Conduit", "Stolen During Power Blackout", "Thief Used Specialized Tools", "Repeat Offense in Hotspot", "Stolen from Bridge Underbelly", "Stolen along Railway Track", "Copper Melted Down Locally", "Stolen for Direct Metal Sale", "Theft Mistaken for Civil Digging"
-            ],
-            "JCB Digging Cut": [
-              "JCB Bucket Direct Hit", "Pickaxe/Crowbar Manual Strike", "Horizontal Directional Drill (HDD) Clash", "Drain Desilting Claw Ripped", "Road Tarring Heat/Roller Crush", "Vibration Roller Fracture", "Pavement Tile Laying Dig", "KWA Trenching Cross-cut", "Storm Water Drain Deepening", "Bridge Expansion Joint Cutter", "Retaining Wall Collapse Dig", "Culvert Rebuilding Excavator", "Waste Removal Claw Hooked", "Road Grader Blade Sliced", "Soil Compactor Pressure Snap", "Asphalt Cutter Sliced Shallow", "Jackhammer Vibration Severed", "Survey Stake Driven Through Duct", "Dredging Machine River Hit", "Gabion Wall Excavation Crush"
-            ],
-            "Copper pair faulty": [
-              "Low IR/Insulation Resistance", "Earth Fault/Grounding", "Foreign Potential Voltage", "Loop Contact/Short", "Disconnection/Open Circuit", "Noisy Line/Humming", "Cross Talk Interference", "Rectification Module Fault", "Jumper Loose at MDF", "MDF Pin Corrosion", "Water inside Copper Cable", "Lightning Surge Damage", "Induction Hum from HT Line", "Joint Oxidation/Rust", "Carbon Deposit on Contacts", "Battery Contact Fault", "Rectifier Noise Induction", "Split Pair Configuration", "Reversed Pair Wiring", "High Resistance Joint"
-            ],
-            "Copper joint faulty": [
-              "Water Entry in Joint Closure", "Sleeve Cracked/Degraded", "Twist Opened due to Tension", "Connector Crimp Failed", "Corrosion/Rust inside Splice", "Ant Hill built inside Joint", "Crushed Joint by Vehicle Weight", "Vibration Opened Connection", "Heat Shrink Seal Failed", "Old Joint Degraded", "Jelly/Gel Dried Out", "Insulation Strip Broke Wire", "Conductor Broken at Splice", "Termite Attack on Closure", "Improper Crimping Tool Used", "Cold Solder Joint Cracked", "Flux Residue Corrosion", "Insulation Tape Unraveled", "Closure Bolt Leaking Water", "Bolt Loosened over Time"
-            ],
-            "Copper to Ftth": [
-              "Technology Upgrade Request", "Copper Cable Theft Avoidance", "Frequent Copper Faults Push", "High Speed Broadband Request", "Standardization to Fiber", "Copper Cable End of Life Reached", "Pole Shifting Required Fiber", "Road Widening Destroyed Copper", "Customer Request for Upgrade", "Right of Way Issue for Copper", "Copper Exchange Closure", "MSAN Retirement Plan", "Signal Distance Issue (Too Far)", "Maintenance Cost Reduction", "Competitor Pressure Upgrade", "Real Estate Dev Fiber Mandate", "Smart Home IoT Requirement", "Business Plan Upgrade", "Gaming Latency Complaint", "HD Streaming Requirement"
-            ],
-            "ERP clearance (New connection core addition)": [
-              "New FTTH Provisioning Requirement", "Splitter Port Exhaustion Limit Reached", "Customer Shifted to New Active Port", "Distance Limitation Overcome by Core Add", "New Drop Wire Routing Setup", "VIP Customer Priority Provisioning", "Enterprise/Business Link Addition", "MDU Dedicated Core Provisioning", "Dead Core Replaced for Activation", "Capacity Augmentation for Sector", "Direct OLT-to-FAT Splicing Done", "New ODP/JC Core Looping", "Pending Backlog Activation Cleared", "Extended Range Drop Installation", "Redundancy Core Activated", "Customer Bandwidth Upgrade Link", "High-Loss Core Bypassed and Replaced", "Housing Society New Core Allocation", "Pre-provisioning for Upcoming Project", "Secondary Splitter Core Feed Added"
-            ],
-            "Cable sagging correction": [
-              "High Wind Loosening Corrected", "Pole Tilt Fixed & Tensioned", "Clamp Failure Replaced", "Heavy Rain Load Stretch Fixed", "Vehicle Height Hazard Removed", "Tree Branch Weight Removed", "Old Cable Stretch Re-Tensioned", "Improper Initial Stringing Fixed", "Hook Bend Replaced", "Public Complaint of Sag Handled", "Monkey/Bird Swing Slack Pulled", "Pole Band Slippage Secured", "Temperature Expansion Slack Pulled", "Road Level Raised Clearance Fixed", "Safe Height Regulation Met", "Building Construction Snag Removed", "Temporary Rope Tie Replaced", "Cable Tie Degradation Fixed", "Spacer Bar Missing Installed", "Vibration Damper Re-secured"
-            ],
-            "FMS Changed": [
-              "Rack Space Issue Full Upgrade", "Door/Hinge Broken Beyond Repair", "Rodent Damage to Chassis", "Water Entry Rusted Entire Rack", "Fire/Heat Damage Melted Ports", "High Capacity Upgrade Required", "Port Alignment Damaged", "Tray Lock Mechanism Failed", "Glass/Metal Frame Bent via Impact", "Relocation of OLT Subrack", "Backplane Mounting Failure", "Integrated Fan Cooling Failed", "Grounding Stud Snapped Off", "Aesthetic Modernization Upgrade", "Physical Distortion from Quake", "Seismic Brace Failure", "Power Strip Integrated Failure", "Cable Manager Arms Broken", "Side Panel Missing/Stolen", "Master Lock Key Lost Permanently"
-            ],
-            "FMS Rehab": [
-              "Comprehensive Connector Cleaning", "Fiber Pigtail Dressing/Routing", "Labeling/Tagging Audit Update", "Splice Tray Re-Organization", "Removing Dead Patch Cords", "Velcro Strap Replacement", "Port Dust Caps Installed", "Grounding Continuity Checked", "Cable Tie Refresh", "Slack Cable Management", "Adapter Panel Alignment Fixed", "Pigtail Routing Inspected", "Rust Prevention Spray Applied", "Door Latch/Lock Lubricated", "Fiber Bend Radius Verified", "Airflow Blockage Cleared", "Power Cable Routing Separated", "Alarm Contact Checked", "Floor Mounting Bolts Tightened", "Overhead Cable Tray Aligned"
-            ],
-            "FAT Refix": [
-              "Wall Dampness/Weakness Shift", "Screw Loose/Missing Re-drilled", "Clamp Rusted Replaced", "Pole Band Broken Replaced", "Height Adjustment for Safety", "Alignment Correction Leveling", "Vibration Loosening Tightened", "Plastering Work Caused Shift", "Temporary to Permanent Fix", "Monkey/Bird Disturbance Fix", "Wall Painting Removal Re-attach", "Vehicle Hit Misalignment Fixed", "Building Renovation Shift", "Tree Growth Push Relocated", "Public Safety Request Moved", "Foundation Crack Wall Shift", "Pole Replacement Shift Re-mount", "Cable Tension Pulled Box Fixed", "Unauthorized Movement Corrected", "Storm Damage Re-alignment"
-            ],
-            "OTB Refix": [
-              "Wall Clamp Failure Replaced", "Rust on Mount Screws Fixed", "Building Painting Removal Re-attach", "Height Correction for Access", "Safe Access Shift Relocation", "Loose Mounting Re-drilled", "Drilling Error Corrected", "Cable Tension Pulled Box Fixed", "Vibration Issue Tightened", "Water Pipe Leak Nearby Shift", "Wall Crack/Collapse Relocated", "Insect Nest Behind Box Cleared", "Customer Aesthetic Request Move", "Access Obstruction Cleared", "Corrosion of Screws Replaced", "Insulation Spacer Failed/Fixed", "Ground Wire Re-connected", "Cover Screw Stripped & Replaced", "Entry Hole Sealant Re-applied", "Conduit Alignment Fixed"
-            ],
-            "EB drive": [
-              "KSEB Pole Replacement Support", "HT Line Maintenance Clear", "Transformer Shift Fiber Clear", "Line Sagging Correction Support", "Spacer Installation Support", "Guard Wire Work Clear", "Pole Straightening Support", "Old Pole Removal Disconnect", "Cross Arm Change Support", "Authority Notice Compliance", "Stay Wire Replacement Clear", "Insulator Change Support", "Bird Guard Install Clear", "Line Clearance Work Support", "Feeder Maintenance Support", "HT Crossing Guard Clear", "Pole Numbering Support", "Streetlight Arm Fix Clear", "Cable Separation Drive", "Anti-Climbing Device Clear"
-            ],
-            "Door closed": [
-              "Customer Relocated Permanently", "House Demolished Completely", "Permanent Disconnection Requested", "Building Renovation Locked", "Locked Gate/No Access Granted", "Shop Closed Permanently", "Owner Objection to Entry", "Safety Hazard Condemned Bldg", "Rental Vacancy Empty House", "Bill Non-Payment Long Term", "Legal Dispute Sealing by Court", "Covid/Quarantine Restriction Zone", "Key Holder Unavailable Long Term", "Dog/Pet Hazard Unresolved", "Flooded Premises Inaccessible", "Under Police Seal/Investigation", "Road Construction Blocked Entry", "Customer Out of Station Long Term", "Gate Weld Shut Permanently", "Bio-Bubble Zone Restricted"
-            ],
-            "EB Pole shifting drive": [
-              "Road Widening Pole Shift", "Private Property Request Relocation", "Unsafe Leaning Pole Swapped", "New Transformer Install Shift", "High Tension Line Upgrade Shift", "Concrete Pole Swap Support", "Accident Damage Replacement", "Drainage Work Interference Shift", "Path Relocation Pole Move", "Municipality Order Compliance", "Footpath Construction Shift", "Bridge Construction Clear", "Underground Cabling (KSEB) Shift", "Landslide Risk Relocation", "Voltage Upgradation Shift", "Double Pole Structure Build", "Stay Wire Conflict Shift", "Smart Meter Install Clear", "Solar Pole Swap Shift", "Flyover Clearance Shift"
-            ],
-            "EB Tree cleaning drive": [
-              "Monsoon Pre-check Trimming", "Touching HT Line Clearing", "Heavy Branch Overhang Cut", "Dry Branch Fire Risk Cut", "KSEB Scheduled Cut Support", "Municipality Trimming Support", "Coconut Tree Cleaning Support", "Bamboo Cluster Clearing", "Storm Debris Removal Assist", "Private Land Cutting Clear", "Termite Infested Tree Fall", "Wind Fall Risk Mitigation", "Signal Obstruction Branch Cut", "Cable Friction Wear Trimming", "Public Complaint Overgrowth", "Root System Weak Tree Removal", "Fruit Fall Damage Prevention", "Bird Nest Removal Support", "Power Arcing Clearing Support", "Emergency Fire Cut Assist"
-            ],
-            "underground cable replaced": [
-              "Rodent/Termite Damage Sub-soil", "Water Ingress High Loss Replacement", "Construction Damage Severe Crush", "Depth Issue Shallow Trench Cut", "Road Expansion Crushed Conduit", "Cable Aging/Brittle Underground", "Capacity Upgrade Core Addition", "Route Diversion for New Foundation", "Joint Failure inside Buried Closure", "Soil Erosion/Exposure Damage", "Chemical/Sewage Contamination", "Crushed by Shifting Rock Load", "Tree Root Intrusion Severed", "Manufacturing Defect in Sheath", "Lightning Strike Ground Surge", "HDD Drill Hit Directly Replaced", "Soil Acid Corrosion Sheath", "Landslide Shear Stress Break", "River Bed Shift Break Replaced", "Ice Heave Damage Winter Fix"
-            ],
-            "Power correction": [
-              "Low Voltage/Fluctuation Fixed", "Socket Burnout Replaced", "UPS Battery Dead Replaced", "Earthing Issue Corrected", "MCB Tripping Fault Found", "Loose Wiring Tightened", "Generator Link Fail Fixed", "SMPS Fault Replaced", "Power Extension Cord Replaced", "Solar Switchover Issue Fixed", "Fuse Blown Replaced", "Surge Protector Trip Reset", "Power Cable Rat Bite Replaced", "Phase Missing Restored", "Neutral Fault Corrected", "Inverter Overload Reduced", "Grid Frequency Error Bypassed", "Lightning Arrestor Fail Fixed", "Capacitor Bank Fail Fixed", "Transfer Switch Stuck Reset"
-            ],
-            "JC Sagging Correction": [
-              "Chamber Sinking Soil Fixed", "Soil Settlement Pulled Cable", "Heavy Vehicle Movement Shift", "Clamp Failure inside MH Fixed", "Cable Loop Loose Re-tied", "Hook Rusted Replaced", "Water Flow Force Displacement", "Vibration Loosening Fixed", "Improper Installation Corrected", "Excess Slack Pulled & Tied", "Manhole Reconstruction Support", "Cable Tray Broken Replaced", "Joint Closure Weight Supported", "Rodent Nest Weight Removed", "Temperature Expansion Slack Fixed", "Lid Collapse Pressure Relieved", "Root Growth Push Corrected", "Illegal Dumping Weight Cleared", "Flood Silt Weight Cleaned", "Earthquake Shift Re-aligned"
-            ],
-            "Own Pole shifting": [
-              "Road Widening Order Relocated", "Property Boundary Wall Relocated", "Leaning/Unsafe Foundation Fixed", "Rust/Corrosion at Base Swapped", "Height Increase Req Swapped", "Vehicle Hit Damage Swapped", "Neighbor Objection Relocated", "Path Change Relocated", "Soil Erosion Foundation Re-cast", "Aesthetic Realignment Relocated", "Gate Construction Relocated", "Drainage Work Interference Reloc", "Overhead Clearance Issue Fixed", "Landslide Threat Relocated", "Development Authority Order Moved", "Pole Cap Missing Replaced", "Guy Wire Re-tension Applied", "Concrete Base Crack Repaired", "Termite in Wood Pole Swapped", "Grounding Rod Check & Fix"
-            ],
-            "Planned Actvity": [
-              "Network Upgrade/Augmentation", "Node Splitting for Load", "OLT Migration to New Site", "Fiber Ring Closure Security", "Backhaul Capacity Increase", "Tech Refresh (GPON to XGSPON)", "Software Patching Update", "Preventive Maintenance Check", "Link Protection Testing", "Audit Compliance Verification", "Power Plant Servicing", "Cooling System Service", "Fire Safety Drill Test", "Rack Reorganization Drive", "Labeling Drive Cleanup", "Battery Bank Swap Setup", "Rectifier Module Addition", "Switch Config Change Load", "Database Migration Window", "Security Patch Update"
-            ]
+            "Action taken by HDO": ["Remote Port Reset Performed", "MAC Binding Cleared", "Bandwidth Profile Reconfigured", "ONT Firmware Pushed", "Admin Status Toggled", "Dormant Session Kicked", "VLAN Remapped", "IP Lease Released Manually", "Optical Threshold Adjusted", "Port Bounced/Restarted", "Customer Password Reset", "WiFi Channel Optimization", "Speed Provisioning Fixed", "Authentication Server Synced", "Rogue ONT Blocked", "FEC Error Handled", "T-CONT Reallocated", "DBA Profile Updated", "Loopback Test Passed", "Billing Sync Error Resolved"],
+            "FAT/OTB shifted/ replaced - cable re-spliced": ["Pole Replacement by KSEB", "Road Widening Impact", "Property Wall Reconstruction", "Customer Relocation Request", "Box Smashed by Vehicle", "Severe Rusting/Corrosion", "Capacity Exhaustion (Upgrade)", "Fire Damage to Enclosure", "Tree Fall Destroyed Box", "Water Logging at Base", "Termite Infestation in Wood Pole", "Vandalism/Theft of Box", "Re-alignment for Aesthetics", "Shifted from Private to Public", "Tension Rupture Replacement", "Lightning Strike Melt", "Unsafe Hanging Box Fixed", "Shifting due to Drainage Work", "Box Lid Hinge Broken", "Re-spliced due to Internal Port Fail"],
+            "Pigtail/patch cord cleaned/replaced": ["High Attenuation at Connector", "Ferrule Scratched/Pitted", "Broken Locking Clip", "Severe Macrobend in Cord", "Rat Chewed Patch Cord", "Dust Contamination on Core", "Moisture/Condensation in Port", "Burn Spot on Ferrule", "Tensile Strain/Pull Damage", "Jacket Peeled/Exposed", "Mismatched Connector Type", "Endface Oil/Smudge", "Fiber Snapped at Boot", "Defective Factory Splice", "Upgraded to Bend-Insensitive", "Tangle/Kink Damage", "Cleaned after Civil Work Dust", "Replaced for Standard Color Code", "Port Shift Required Longer Cord", "Poor Splice at Pigtail Joint"],
+            "Riser cable damaged due to inbuilding activity": ["Plumber Cut Duct", "Electrician Pulled Wrong Cable", "AC Installation Drilling", "False Ceiling Collapse", "Elevator Shaft Maintenance", "Painter Scraped/Cut Jacket", "Intercom Wiring Entanglement", "Flooring/Tile Cutting", "Rodent Bite in Riser", "Sharp Edge Chafing", "Vandalism by Tenant", "Door/Window Pinch", "Carpet Laying Staples", "Fire Alarm Contractor Cut", "Overcrowded Shaft Crush", "Furniture Moving Snag", "Internal Renovation Drill", "CCTV Installer Severed", "Internet Rival Sabotage", "Ceiling Rat Trap Damage"],
+            "Secondary splitter replaced": ["High Insertion Loss", "Uneven Port Splitting", "Splitter Input Leg Snapped", "Defective Splitter Chip", "Water Ingress in Module", "Output Port Blocked/Stuck", "Upgraded 1:4 to 1:8", "Burnout from High Power", "Temperature Cycle Microcracking", "Rodent Chewed Splitter Legs", "Vandalized/Pulled Out", "Connector Boot Failed", "Refractive Index Mismatch", "Splitter Box Melted", "Splice Tray Pinching Leg", "Replaced during FAT Rehab", "Port Dust Cap Missing/Ruined", "Macrobending inside Cassette", "Defective Polish at Factory", "Leg Entangled and Snapped"],
+            "Single fiber break-re-spliced": ["Splice Protector Snapped", "Cleave Angle Defect", "High Splice Loss Correction", "Bubble in Fusion Splice", "Microbend near Splice", "Tension Break in Tray", "Slack Loop Pinched", "Tube Strain/Shrinkage", "Spliced to Wrong Core (Fix)", "Exposed Bare Fiber Broke", "Re-splice after OTDR Fault", "Water Freezing inside Closure", "Fiber Slippage in V-Groove", "Contaminated Splice Cleared", "Rodent Nibbled Single Core", "Over-bending in Cassette", "Splice Machine Arc Failure Fix", "Technician Handling Break", "Core Mismatch Corrected", "Strain Relief Failure"],
+            "Cable burnt- electric short Circuit": ["Touching HT Power Line", "Transformer Explosion Sparks", "Arc Flash from 11kV Line", "Neutral Wire Dropped on Fiber", "Insulation Melted by Heat", "Garbage Burning below Pole", "Streetlight Wiring Short", "Illegal Power Tap Sparking", "Lightning Strike Induction", "Short Circuit at KSEB DP", "Fireworks/Cracker Burn", "Building Fire Spread", "Transformer Oil Leak Fire", "Welding Sparks from Construction", "Chemical Combustibility", "Temporary Electric Line Cross", "Cable Tied to Live Wire", "High Tension Sagging Contact", "Earthing Leakage Arc", "Vehicle Fire Melted Cable"],
+            "Cable cut by vehicle": ["Over-height Truck Snag", "Bus Roof Collision", "Container Lorry Hook", "Crane Arm Swing", "Car Crashed into Pole", "Road Resurfacing Reduced Clearance", "JCB Excavator Reversing", "Garbage Truck Lift Mechanism", "Fire Engine Ladder Hit", "Tractor/Harvester Mowing", "Cement Mixer Chute", "Towing Cable Entanglement", "Double Decker Bus Pass", "Military Convoy Hit", "House Moving Transporter", "Forklift Mast Raised", "Delivery Van Door Open", "Dump Truck Bed Lifted", "Tree Pruning Vehicle", "Speeding Vehicle Dragged Down"],
+            "cable cut- tree cleaning drive": ["KSEB Scheduled Trimming", "Municipality Pruning", "Private Landowner Machete", "Falling Coconut Impact", "Storm Debris Cleanup Cut", "Bamboo Cluster Chopping", "Palm Frond Dropping", "Mechanized Saw Hit", "Fruit Plucking Pole Hook", "Tree Uproot Dragging", "Hedge Trimmer Slip", "Chainsaw Severed Wire", "Vine/Creeper Removal Cut", "Root Clearing Dig Hit", "Stump Grinding Vibration", "Branch Tension Snap", "Cable Entangled in Falling Limb", "Axe Glanced off Wood", "Contractor Carelessness", "Emergency Fire Break Cutting"],
+            "Cable damaged- Other Infra works": ["KWA Pipe Digging", "PWD Road Tarring", "Smart City Duct Work", "Metro Rail Foundation", "Gas Pipeline Trenching", "Cable TV Stringing Override", "Street Light Pole Base Repair", "CCTV Camera Installation", "Advertising Board Mounting", "Footpath Tiling/Paving", "Solar Panel Grid Wiring", "Fence Construction Drill", "Bridge Painting/Scraping", "Traffic Light Induction Loop", "Bus Stop Shelter Build", "Speed Breaker Construction", "Manhole Leveling Crush", "Signpost Concrete Digging", "Sewer Line Jetting", "Underground Railway Work"],
+            "Cable damaged-Pole Removal/shifting": ["Road Widening Pole Shift", "Old Rusted Pole Collapse", "Unplanned Municipality Removal", "Leaning Pole Tension Drop", "Base Foundation Failure", "Vehicle Hit Required Shift", "Private Property Owner Eviction", "New Pole Insertion Crush", "Safety Hazard Relocation", "Temporary Shift for Bridge", "Concrete Pouring Stress", "Earthmover Knocked Base", "Guy Wire Snapped", "Cable Transfer Mishandling", "Pole Climbing Spikes Cut", "Ladder Stress Break", "Safety Belt Pinch on Cable", "Pulley Block Squeezed", "Winch Tension Snap", "Crane Lifting Force"],
+            "Fiber break inside JC": ["Water Accumulation/Freezing", "Ant/Termite Nest Building", "Crushed by Heavy Vehicle", "Manhole Lid Collapsed onto JC", "Joint Closure Aged/Cracked", "Overcrowded Tray Pinch", "Sleeve Slipped off Splice", "Temperature Expansion/Contraction", "O-Ring Seal Failed", "Bolt Failure due to Rust", "Chemical Seepage Dissolved Buffer", "Root Intrusion Crushed Core", "Vibration Disconnected Fiber", "Gel Leakage/Drying", "Tray Latch Broke and Dropped", "Buffer Tube Kinked", "Strength Member Rusted/Snapped", "Technician Rough Handling", "Label Ink Corroded Cladding", "Rodent Nested Inside"],
+            "Intentional cut by unknown person": ["Local ISP Rivalry", "Pure Vandalism", "Failed Cable Theft Attempt", "Anti-social Elements Prank", "Property Dispute Boundary Cut", "Labor Union Strike Action", "Drunkard Nuisance", "Political Protest Blockade", "Competitor Sabotage", "Building Security Cleared Wires", "Kite String (Manja) Removal", "Festival Decoration Clearing", "Political Banner Hanging", "Scrap Collector Mistake", "Mental Instability Act", "Gang Turf War Damage", "Tenant vs Landlord Spite", "Copper Theft Confusion", "Kids Prank/Play", "Disgruntled Ex-Employee"],
+            "Cable damaged due to nala/culvert cleaning/infra work/Road expansion": ["JCB Bucket Scrape", "Pickaxe/Crowbar Hit", "Horizontal Directional Drilling (HDD)", "Drain Desilting Machine Claw", "Road Tarring Heat Melt", "Roller Vibration Fracture", "Pavement Block Laying", "Storm Water Drain Deepening", "Bridge Expansion Joint Work", "Retaining Wall Collapse Impact", "Culvert Rebuilding Crush", "Waste Removal Claw Hook", "Road Grader Blade Slice", "Soil Compactor Pressure", "Asphalt Cutter Sliced", "Jackhammer Vibration Snap", "Survey Stake Driven Through", "Dredging Machine Hook", "Gabion Wall Rock Crush", "Bulldozer Track Pinch"],
+            "Rodent cut": ["Rat Bite in Underground Duct", "Termite Attack on Wood Pole", "Squirrel Gnawed OH Cable", "Bandicoot Burrowing in Trench", "Cable Sheath Eaten Away", "Nesting Material Harvested", "Entry via Broken Manhole", "Food Waste Dump Nearby", "Soft Soil Entry Point", "Riser Shaft Rat Colony", "False Ceiling Rat Trap", "Cabinet Entry via Vent", "Chewing Through PVC Pipe", "Dead Animal Corrosion", "Bird Pecking Outer Jacket", "Monkey Biting/Swinging", "Dog Chewing Drop Wire", "Cat Scratching FMS", "Bat Hanging/Guano Acidity", "Insect Borehole Damage"],
+            "TT auto resolved post power restoration": ["Area Power Grid Returned", "Building DG Set Turned On", "UPS Battery Automatically Recharged", "Phase Correction at Transformer", "Grid Frequency Stabilized", "Transformer Fixed by KSEB", "Fuse Replaced at Pole", "Solar Backup Activated", "Main Line Power Restored", "Customer Paid EB Bill", "Switchboard MCB Reset", "Inverter Auto-Switched", "Prepaid Meter Recharged", "Voltage Stabilizer Recovered", "Diesel Refilled in DG", "Wind Power Kick-in", "Substation Relay Reset", "Feeder Switch Closed", "Isolator Fault Cleared", "Surge Protector Reset"],
+            "TT resolved without any action": ["Self-Healing Network Protocol", "Transient Line Glitch Cleared", "Loose Contact Automatically Settled", "Customer Restarted Modem", "False LOS Alarm Cleared", "Line Parameters Stabilized", "Duplicate Ticket Merged", "System Sync Error Fixed", "Auto-Recovery Script Ran", "Intermittent Power Fluctuation Ended", "Cable Swing Settled", "Bird Flew Off Line", "Temperature Dropped to Normal", "Sun Outage Passed", "Fog/Humidity Cleared", "Rain Stopped/Dried", "Vibration Source Stopped", "RF Interference Dissipated", "User Plugged Cable Back", "Background Patch Deployed"],
+            "Wrong TT Login - Customer Barred": ["Bill Unpaid Suspension", "FUP Limit Exhausted", "Prepaid Plan Expired", "Safe Custody Status Active", "KYC Document Pending", "MAC Binding Violation", "Device Blacklisted by Admin", "Abuse/Fraud Block Applied", "Credit Limit Crossed", "Porting Out Request Pending", "Payment Gateway Delay", "Admin Suspended Account", "Static IP Revoked", "Voluntary Disconnection Request", "Child Lock/Parental Control Enabled", "Legal Dispute Sealing", "Security Audit Hold", "Multiple Wrong Passwords Lock", "Subscription Renewed Late", "Profile Sync Failed at Billing"],
+            "Wrong TT login - Electricity Failure": ["Complete Area Blackout", "Building Scheduled Power Cut", "Maintenance at Substation", "Transformer Blown Locally", "HT Line Fault", "Pole Fuse Blown", "Customer Switched Off Main", "Grid Failure/Collapse", "Storm Outage", "Bill Non-Payment (Electricity)", "Internal House Wiring Fault", "Generator No Fuel Available", "UPS Battery Completely Dead", "Socket/Plug Burnt Out", "ELCB/MCB Tripped", "Voltage Surge Protective Cut", "Phase Loss in 3-Phase", "Digital Meter Fault", "Solar Inverter Trip", "Earthing Leakage Cutoff"],
+            "Wrong TT login- Planned activity": ["Pre-informed Downtime Window", "Core Network Upgradation", "Fiber Route Relocation", "Backend Server Maintenance", "OLT Chassis Upgrade", "Preventive Splicing Work", "Node Splitting Operation", "Backhaul Microwave Maint", "Power Plant Battery Swap", "Capacity Expansion Addition", "Fiber Ring Switchover", "System Database Migration", "Software/Firmware Patching", "Vendor Hardware Swap", "Annual Security Audit", "Core Router Updation", "Aggregation Switch Swap", "Cooling System Overhaul", "Fire Safety Drill Outage", "Routine Cable Grooming"],
+            "No fault found": ["Power Returned Automatically", "Customer Restarted Router", "Transient Line Noise Cleared", "Loose Connector Settled", "ISP Backhaul Restored", "Micro-bend Relaxed", "False LOS Alarm Cleared", "Software Auto-Update Fix", "IP Lease Renewed Automatically", "DNS Cache Flushed", "Bandwidth Congestion Cleared", "Interference Source Gone", "Temperature Normalized", "Voltage Stabilized", "Optical Signal Within Limit", "Device Overheated and Cooled", "Firmware Reset by Customer", "Device Rebooted via App", "Remote Configuration Synced", "Authentication Token Renewed"],
+            "TT Cancelled": ["Customer Requested Closure", "Duplicate Issue Logged", "Wrong Customer ID Given", "Addressed in Master Outage TT", "Out of Service Scope", "Access Permanently Denied", "Customer Shifted Home", "Plan Downgrade Wait", "Test Ticket Closed", "Logged by Mistake", "Merged with Area Outage", "Customer Unreachable 3x", "Address Not Traceable", "Site Not Ready for Install", "Payment Not Realized", "Third Party Infrastructure Delay", "Weather Forced Postponement", "Language Barrier Cancel", "Equipment Not Returned", "Sales Lead Reversal"],
+            "False Alarm": ["NMS Sync Delay", "Customer Misinterpreted LEDs", "Transient Optical Spike", "Auto-Healed Before Dispatch", "Duplicate System Trigger", "False LOS from Local Power Cut", "Alarm Cleared Post Reboot", "Threshold Fluctuation", "Backend Server Glitch", "Testing Triggered Alarm", "SFP Monitoring Glitch", "Port Flap Resolved Quickly", "Temporary Mac Collision", "Routing Loop Cleared", "SNMP Poller Timeout", "Weather Interference", "API Communication Fail", "Scheduled Backup Interruption", "Customer Unplugged Briefly", "App Display Error"],
+            "Connector cleaned at ODF": ["Dust on Ferrule Face", "Fingerprint Smudge", "Oil/Grease Residue", "Protective Cap Missing", "Insert/Removal Scraping Dust", "Rack Vibration Shook Dust", "Construction Dust Nearby", "AC Vent Blew Dust", "Old Connector Oxidation", "High Loss Alarm Triggered", "Liquid/Condensation Spill", "Lint from Cleaning Cloth", "Scratch Polish Fixed", "Static Charge Attracted Dust", "Insect Debris Inside", "Tobacco Smoke Film", "Cleaning Fluid Residue", "Skin Flakes/Dandruff", "Paint Particles Airborne", "Micro-Corrosion Dust"],
+            "ODF damaged by Authority/unknown person- Replaced": ["Access by Unauthorized Staff", "Rack Door Forced Open", "Pure Vandalism", "Accidental Bump by Trolley", "Cleaning Staff Sweeper Hit", "Construction Debris Smash", "Pest Control Chemical Damage", "Water Leakage on Rack", "Fire Incident Nearby", "Severe Rust/Corrosion", "Theft of Internal Parts", "Short Circuit Fire Melt", "Wall Collapse onto Rack", "Door Lock Broken/Jammed", "Panel Denting/Crush", "Screwdriver Stab Sabotage", "Hammer Hit Vibration", "Graffiti Paint Over Ports", "Glue Sabotage in Ports", "Magnetic Damage to Rack"],
+            "patch cord/pigtail damaged - Replaced": ["Rat Bite inside Rack", "Door Pinch on Closing", "Tight Bending Radius Violation", "Velcro Strapped Too Tight", "Technician Pulled Violently", "Old/Brittle Jacket Cracked", "Connector Snapped Off", "Polishing Failed at Factory", "Fiber Core Cracked Internally", "Length Shortage/Stretching", "Crushed by Splice Tray", "Heat Damage/Melted", "Zip Tie Cut into Fiber", "Weight Hanging on Cord", "Twisting Stress Break", "Kinked Cable Jacket", "Jacket Abrasion against Metal", "Boot Detached from Connector", "Ferrule Chipped", "Spring Jam inside Connector"],
+            "Primary splitter faulty - Replaced": ["High Insertion Loss on Input", "No Output Light Detected", "Splitter Leg Broken", "Internal Connector Burnout", "Manufacturing Defect in Chip", "Optical Power Surge", "Water Entry in Module", "Rust on Metal Components", "Loose Contact Internally", "Wavelength Dependent Loss", "Return Loss Too High", "Port Isolation Failed", "Physical Housing Crack", "Input Fiber Snapped inside", "Temperature Drift Failure", "Directivity Failed", "Uniformity Specification Failed", "Polarization Dependent Loss (PDL)", "Packaging Vacuum Leak", "Internal Fiber Curl Break"],
+            "Fiber cut by Rodent inside plant FDMS/patch cord": ["Rat Chewed Pigtails", "Bandicoot Nest in Rack", "Termite Infested False Floor", "Squirrel Entered via AC Duct", "Rodent Bit Feeder Core", "Mice in Cable Trench", "Chewed Rack Base Wires", "Fiber Broken by Nesting", "Food Scraps Attracted Pests", "Unsealed Cable Entry Tube", "Rat Caught in Fan Tray", "Chewed Through Label Tags", "Pest Repellent Evaporated", "Vertical Shaft Rodent Entry", "Underfloor Raceway Damage", "Gnawed Splitter Input", "Mice Found inside ODF", "Patch Panel Nibbled", "Duct Sealant Breached", "Rodent Droppings Caused Short"],
+            "PON port fault - Replaced": ["Laser Emitter Burnout", "Receiver Sensitivity Drop", "High Bit Error Rate (BER)", "Continuous Port Flapping", "No TX Light Output", "Hardware Chipset Failure", "Power Surge Damage", "Card Overheated", "Firmware Corruption", "MAC Table Overflow", "Buffer Memory Fault", "Backplane Pin Bent", "SFP Cage Damaged", "Alloc-ID Exhaustion", "T-CONT Scheduling Error", "Ranging Procedure Failed", "DBA Algorithm Crash", "VLAN Tagging Fault", "Port Locked Admin State", "I2C Bus Error"],
+            "PON Port Hang- Resetted": ["Software Glitch/Bug", "Memory Buffer Full", "Routing Process Stuck", "Firmware Update Pending", "Config Mismatch Sync Error", "MAC Table Full/Stuck", "Broadcast Storm Overload", "Traffic Overload Spike", "Session Timeout Freeze", "Protocol Negotiation Error", "Rogue ONU Caused Noise", "Database Lock on OLT", "CPU High Usage Freeze", "Queue Congestion Drop", "Watchdog Timer Reset", "Memory Leak Crash", "Thread Deadlock", "Stack Overflow Error", "Interrupt Storm", "Cache Coherency Issue"],
+            "PON Port swapped": ["Suspected Port Fault", "Testing / Diagnostics Purpose", "Load Balancing Traffic", "Complete Card Failure", "Port Upgrade Req", "SFP Incompatible with Port", "Physical Connector Issue", "Backplane Communication Issue", "Licensing Issue on Port", "VLAN Mapping Issue Fixed", "Port Capacity 100% Full", "Signal Strength Optimization", "Interference Check Swap", "Customer VIP Migration", "Slot Optimization", "Port Isolation Test", "Splitter Group Moved", "Service Class Move", "Test Traffic Generation", "Redundancy / Failover Check"],
+            "SFP Faulty- Replaced": ["Laser Burnout Inside SFP", "Low TX Power Emitted", "Receiver Sensitivity Loss", "I2C Communication Error", "High Temperature Shutdown", "Incompatible Module Inserted", "Connector Locking Clip Failed", "Electrical Short in Cage", "Dust Inside SFP Optics", "Aging Component Failure", "Wavelength Drift off Center", "Bias Current Too High", "Voltage Sag Damage", "EEPROM Read Error", "Extraction Latch Broken", "EMI Interference Issue", "RX Overload / Saturation", "TX Disable Pin Stuck", "LOS False Triggering", "Serial Number Authentication Error"],
+            "Cable Routing/Sagging corrected": ["High Wind Loosened Ties", "Pole Tilt Slackened Cable", "Clamp Failure on Span", "Heavy Rain Added Weight", "Vehicle Height Hazard Hit", "Tree Branch Resting on Cable", "Old Cable Natural Stretch", "Improper Initial Stringing", "Hook Bend/Deformation", "Public Complaint of Sagging", "Monkey/Bird Swing Damage", "Pole Band Slippage", "Temperature Expansion Elongation", "Road Level Raised by Tarring", "Safe Height Regulation Enforced", "Building Construction Hazard", "Temporary Rope Tie Failed", "Cable Tie Degradation", "Spacer Bar Missing", "Vibration Damper Failed"],
+            "Cutover activity- PON Changed": ["Load Balancing OLTs", "Network Segmentation Project", "Line Card Upgrade", "OLT Migration to New Site", "Route Diversion for Civil Work", "Capacity Fill Management", "Optical Signal Improvement", "Legacy Hardware Removal", "Tech Refresh (GPON to XGS)", "Scheduled Maintenance Window", "Node Splitting to Reduce Load", "Fiber Path Optimization", "Power Budget Correction", "Protection Path Reconfiguration", "Port Consolidation/Cleanup", "IP Subnet IP Change", "VLAN Remapping Scheme", "Bandwidth Upgrade Support", "QoS Policy Implementation", "Security Zone Movement"],
+            "FAT Changed": ["Severely Rusted/Corroded Box", "Door/Hinge Completely Broken", "Water Leakage destroying Internals", "Ant/Insect Infestation Permanent", "Burnout/Fire Damage", "Capacity Full Need Bigger Box", "Vandalism/Theft Replacement", "Wall Collapse forced change", "Customer Relocation Request", "Locking Mechanism Destroyed", "Pole Collision Smashed Box", "Termite Damage to Backing", "Internal Splice Tray Hinge Broken", "Sealant Failure Unrepairable", "Building Paint/Renovation Damage", "UV Radiation Cracked Plastic", "Hinge Pin Rusted Solid", "Rubber Gasket Failed", "Mounting Bracket Snapped", "Color Code Fading/Unreadable"],
+            "FAT Rehab": ["Thorough Cleaning/Dusting", "Internal Fiber Dressing/Routing", "Labeling/Tagging Updated", "Missing Port Caps Replaced", "Splitter Testing & Cleaning", "Splice Tray Re-organization", "Sealing Gaps with Silicon", "Rust Treatment Applied", "Tightening Loose Screws/Clamps", "Removing Old/Dead Drop Wires", "Velcro Replacement", "Cable Tie Refresh", "Fiber Bend Radius Corrected", "Heat Sleeve Protection Added", "Identification Tagging Re-done", "Silicon Gel Re-application", "Entrance Gland Fixed", "Splice Tray Re-seated", "Fiber Slack Loop Organized", "Insect Repellent Spray Applied"],
+            "FMS/ODF Changed": ["Insufficient Rack Space", "Door/Hinge Damaged Beyond Repair", "Severe Rodent Damage to Chassis", "Water Entry Rusted Rack", "Fire/Heat Deformation", "High Capacity Upgrade Required", "Port Alignment Damage", "Tray Lock Mechanism Failed", "Glass/Metal Frame Bent", "Relocation of Exchange/OLT", "Backplane Mounting Failure", "Integrated Fan Cooling Failed", "Grounding Stud Snapped", "Aesthetic Modernization Upgrade", "Physical Distortion from Quake", "Seismic Brace Failure", "Power Strip Integrated Failure", "Cable Manager Arms Broken", "Side Panel Missing/Stolen", "Master Lock Key Lost Permanently"],
+            "FMS/ODF Rehab": ["Comprehensive Connector Cleaning", "Fiber Pigtail Dressing", "Labeling/Tagging Audit", "Splice Tray Re-Organization", "Removing Dead Patch Cords", "Velcro Strap Replacement", "Port Dust Caps Installed", "Grounding Continuity Checked", "Cable Tie Refresh", "Slack Cable Management", "Adapter Panel Alignment Fixed", "Pigtail Routing Inspected", "Rust Prevention Applied", "Door Latch/Lock Lubricated", "Fiber Bend Radius Verified", "Airflow Blockage Cleared", "Power Cable Routing Separated", "Alarm Contact Checked", "Floor Mounting Bolts Tightened", "Overhead Cable Tray Aligned"],
+            "ODF Cutover": ["Load Balancing Network", "Segmentation Project", "Core Card Upgrade", "OLT Hardware Migration", "Route Diversion Implementation", "Capacity Fill Re-allocation", "Signal Quality Improvement", "Legacy ODF Removal", "Tech Refresh Protocol", "Maintenance Window Shift", "Node Splitting Distribution", "Fiber Path Redundancy Opt", "Power Budget Re-calculation", "Protection Path Config Switch", "Port Consolidation Effort", "IP Subnet Alteration", "VLAN Remapping Procedure", "Bandwidth Upgrade Support", "QoS Policy Change Switch", "Security Zone Compartmentalization"],
+            "ODF Rehab": ["Connector Polishing/Deep Clean", "Pigtail Un-tangling & Dressing", "Identification/Tag Verification", "Tray Sorting by Color Code", "Rodent Proofing Mesh Install", "Rust Removal and Painting", "Door Alignment Corrected", "Unused Core Proper Termination", "Cable Routing Paths Fixed", "Screw/Nut Hardware Tightening", "Damaged Adapter Replacement", "Heat Shrink Integrity Check", "Grounding Continuity Restored", "Dust Filter Clean/Replace", "Label Renewal with Printouts", "Module Reseating in Slots", "Safety Cover Replacement", "Warning Sticker Update", "Fiber Guide Spool Install", "Backplane Dusting/Vacuuming"],
+            "ODF replaced": ["Unauthorized Access Damage", "Rack Door Forced/Pried Open", "Vandalism to Chassis", "Accidental Bump by Heavy Equip", "Cleaning Staff Sweeper Smash", "Construction Debris Crush", "Pest Control Chemical Melt", "Roof Water Leakage on Rack", "Fire Incident Smoke/Melt", "Rust/Corrosion Collapse", "Theft of Internal Trays", "Short Circuit Fire Damage", "Wall/Ceiling Collapse on Rack", "Door Lock Mechanism Broken", "Panel Denting Severe", "Screwdriver Stab Sabotage", "Hammer Hit Vibration Crack", "Graffiti Paint ruined Ports", "Glue Sabotage in Adapters", "Magnetic Pulse Damage"],
+            "OH cable replaced": ["High Attenuation/Aging", "Too Many Joints/Cuts on Span", "Squirrel/Rodent Bites Widespread", "Sheath Crack/Peeling Extensive", "Burn/Fire Damage Partial Melt", "Low Fiber Count (Capacity Upgrade)", "Route Diversion for Civil Work", "Voltage Induction Interference", "Tree Branch Rubbing Frayed Jacket", "Temporary Cable Made Permanent", "Bird Pecking Damage Over Time", "Shotgun/Pellet Accidental Damage", "Kite Manja Entanglement Cuts", "Clamp Compression Rupture", "UV Degradation Brittle Plastic", "Heavy Ice/Snow Load Sag", "Vandalism Slash Marks", "Bullet Hole Damage", "Lightning Strike Burn Mark", "Acid Rain/Chemical Corrosion"],
+            "OH to UG": ["Aesthetics/Smart City Mandate", "Road Widening Force", "Frequent OH Cuts Reduction", "High Reliability Enterprise Req", "KSEB Pole Removal Order", "Metro/Bridge Work Conflict", "Customer/Building Premium Request", "Municipal Authority Mandate", "Flyover Construction Clearance", "Heritage Zone Rules", "Monsoon Storm Safety Prep", "High Wind Area Precaution", "Copper/Fiber Theft Prevention", "Standardization Project Code", "Urban Planning Alignment", "Tunnel Project Requirement", "Airport Zone No-Fly Rule", "Coastal Protection Salt Avoidance", "River Crossing Security", "Defense Area Security Rule"],
+            "UG cable replaced": ["Rodent/Termite Sub-soil Damage", "Water Ingress Causing High Loss", "Construction Digging Severe Damage", "Depth Issue Shallow Trench", "Road Expansion Crushed Conduit", "Cable Aging/Brittle Underground", "Capacity Upgrade Need More Cores", "Route Diversion for Foundation", "Joint Failure inside Buried Closure", "Soil Erosion/Exposure", "Chemical/Sewage Contamination", "Crushed by Shifting Rock", "Tree Root Intrusion", "Manufacturing Defect in Sheath", "Lightning Strike Ground Surge", "HDD Drill Hit Directly", "Soil Acid Corrosion", "Landslide Shear Stress", "River Bed Shift Break", "Ice Heave Damage Winter"],
+            "UG to OH": ["Bridge/Culvert Reconstruction Block", "Permission Denied for UG Digging", "Trenching Difficulty (Rocky Terrain)", "Water Logging Area Risk", "Land Dispute/Blockage for Trench", "Cost Optimization for Route", "Temporary Restoration Need", "Hard Soil/Bedrock Immobile", "Stream/River Crossing Span", "Road Tarring Restriction (No Dig)", "Utility Clash (Gas/Water Main)", "Heritage Site Digging Restriction", "Emergency Quick Restoration", "Highway Crossing Boring Issue", "Soil Instability/Marsh", "Swamp Area Routing", "Protected Forest Dig Rule", "Archaeological Site Rule", "Private Road Digging Block", "Quick Deploy Military/VIP Req"],
+            "Planned activity": ["Network Capacity Augmentation", "OLT Node Splitting", "Fiber Ring Redundancy Closure", "Backhaul Microwave to Fiber Upg", "Tech Refresh (GPON to XGSPON)", "Core Switch Software Patching", "Preventive Splicing Maintenance", "Link Protection Failover Test", "Safety Audit Compliance Work", "Power Plant Battery Servicing", "AC Cooling System Service", "Fire Safety Drill Outage", "Rack Re-organization Clean", "Asset Tagging/Labeling Drive", "Battery Bank Replacement Swap", "Rectifier Module Addition", "Switch VLAN Config Change", "Database Migration Sync", "Security Patch Firewall Update", "Old Cable Decommissioning"],
+            "Drop wire cut": ["Tree Trimming Severed Cable", "Vehicle Hit Low Hanging Wire", "Door Pinch Snapped Cable", "Window Crush Damage", "Rat/Squirrel Chewed Core", "Children Playing Cut with Scissors", "House Renovation/Painting Cut", "Furniture Moving Snag", "Ladder Hit while Climbing", "Vandalism/Intentional Neighbor", "Roof Tile Replacement Crush", "Garden Tool/Machete Hit", "Pet Dog/Cat Chewed Cable", "Wind Snapped Stretched Wire", "Gate Hinge Crushed Wire", "Curtain Rail Drill Hit Wire", "Shelf Installation Screw Damage", "Vacuum Cleaner Pulled Plug", "Gaming Chair Rolled Over Fiber", "Aesthetic Removal by Owner"],
+            "Copper Theft": ["Night Theft Activity Gang", "Scrap Collector Cut & Run", "Vandalism Group Act", "Unsecured Chamber Entry", "Pole Climber Organized Theft", "Construction Site Night Theft", "Abandoned Area Copper Stripping", "Organized Syndicate Activity", "Lock Broken on DP Box", "Cable Cut & Pulled via Truck", "Missing Cable Splice Chunk", "Stolen from Underground Conduit", "Stolen During Power Blackout", "Thief Used Specialized Tools", "Repeat Offense in Hotspot", "Stolen from Bridge Underbelly", "Stolen along Railway Track", "Copper Melted Down Locally", "Stolen for Direct Metal Sale", "Theft Mistaken for Civil Digging"],
+            "JCB Digging Cut": ["JCB Bucket Direct Hit", "Pickaxe/Crowbar Manual Strike", "Horizontal Directional Drill (HDD) Clash", "Drain Desilting Claw Ripped", "Road Tarring Heat/Roller Crush", "Vibration Roller Fracture", "Pavement Tile Laying Dig", "KWA Trenching Cross-cut", "Storm Water Drain Deepening", "Bridge Expansion Joint Cutter", "Retaining Wall Collapse Dig", "Culvert Rebuilding Excavator", "Waste Removal Claw Hooked", "Road Grader Blade Sliced", "Soil Compactor Pressure Snap", "Asphalt Cutter Sliced Shallow", "Jackhammer Vibration Severed", "Survey Stake Driven Through Duct", "Dredging Machine River Hit", "Gabion Wall Excavation Crush"],
+            "Copper pair faulty": ["Low IR/Insulation Resistance", "Earth Fault/Grounding", "Foreign Potential Voltage", "Loop Contact/Short", "Disconnection/Open Circuit", "Noisy Line/Humming", "Cross Talk Interference", "Rectification Module Fault", "Jumper Loose at MDF", "MDF Pin Corrosion", "Water inside Copper Cable", "Lightning Surge Damage", "Induction Hum from HT Line", "Joint Oxidation/Rust", "Carbon Deposit on Contacts", "Battery Contact Fault", "Rectifier Noise Induction", "Split Pair Configuration", "Reversed Pair Wiring", "High Resistance Joint"],
+            "Copper joint faulty": ["Water Entry in Joint Closure", "Sleeve Cracked/Degraded", "Twist Opened due to Tension", "Connector Crimp Failed", "Corrosion/Rust inside Splice", "Ant Hill built inside Joint", "Crushed Joint by Vehicle Weight", "Vibration Opened Connection", "Heat Shrink Seal Failed", "Old Joint Degraded", "Jelly/Gel Dried Out", "Insulation Strip Broke Wire", "Conductor Broken at Splice", "Termite Attack on Closure", "Improper Crimping Tool Used", "Cold Solder Joint Cracked", "Flux Residue Corrosion", "Insulation Tape Unraveled", "Closure Bolt Leaking Water", "Bolt Loosened over Time"],
+            "Copper to Ftth": ["Technology Upgrade Request", "Copper Cable Theft Avoidance", "Frequent Copper Faults Push", "High Speed Broadband Request", "Standardization to Fiber", "Copper Cable End of Life Reached", "Pole Shifting Required Fiber", "Road Widening Destroyed Copper", "Customer Request for Upgrade", "Right of Way Issue for Copper", "Copper Exchange Closure", "MSAN Retirement Plan", "Signal Distance Issue (Too Far)", "Maintenance Cost Reduction", "Competitor Pressure Upgrade", "Real Estate Dev Fiber Mandate", "Smart Home IoT Requirement", "Business Plan Upgrade", "Gaming Latency Complaint", "HD Streaming Requirement"],
+            "ERP clearance (New connection core addition)": ["New FTTH Provisioning Requirement", "Splitter Port Exhaustion Limit Reached", "Customer Shifted to New Active Port", "Distance Limitation Overcome by Core Add", "New Drop Wire Routing Setup", "VIP Customer Priority Provisioning", "Enterprise/Business Link Addition", "MDU Dedicated Core Provisioning", "Dead Core Replaced for Activation", "Capacity Augmentation for Sector", "Direct OLT-to-FAT Splicing Done", "New ODP/JC Core Looping", "Pending Backlog Activation Cleared", "Extended Range Drop Installation", "Redundancy Core Activated", "Customer Bandwidth Upgrade Link", "High-Loss Core Bypassed and Replaced", "Housing Society New Core Allocation", "Pre-provisioning for Upcoming Project", "Secondary Splitter Core Feed Added"],
+            "Cable sagging correction": ["High Wind Loosening Corrected", "Pole Tilt Fixed & Tensioned", "Clamp Failure Replaced", "Heavy Rain Load Stretch Fixed", "Vehicle Height Hazard Removed", "Tree Branch Weight Removed", "Old Cable Stretch Re-Tensioned", "Improper Initial Stringing Fixed", "Hook Bend Replaced", "Public Complaint of Sag Handled", "Monkey/Bird Swing Slack Pulled", "Pole Band Slippage Secured", "Temperature Expansion Slack Pulled", "Road Level Raised Clearance Fixed", "Safe Height Regulation Met", "Building Construction Snag Removed", "Temporary Rope Tie Replaced", "Cable Tie Degradation Fixed", "Spacer Bar Missing Installed", "Vibration Damper Re-secured"],
+            "FMS Changed": ["Rack Space Issue Full Upgrade", "Door/Hinge Broken Beyond Repair", "Rodent Damage to Chassis", "Water Entry Rusted Entire Rack", "Fire/Heat Damage Melted Ports", "High Capacity Upgrade Required", "Port Alignment Damaged", "Tray Lock Mechanism Failed", "Glass/Metal Frame Bent via Impact", "Relocation of OLT Subrack", "Backplane Mounting Failure", "Integrated Fan Cooling Failed", "Grounding Stud Snapped Off", "Aesthetic Modernization Upgrade", "Physical Distortion from Quake", "Seismic Brace Failure", "Power Strip Integrated Failure", "Cable Manager Arms Broken", "Side Panel Missing/Stolen", "Master Lock Key Lost Permanently"],
+            "FMS Rehab": ["Comprehensive Connector Cleaning", "Fiber Pigtail Dressing/Routing", "Labeling/Tagging Audit Update", "Splice Tray Re-Organization", "Removing Dead Patch Cords", "Velcro Strap Replacement", "Port Dust Caps Installed", "Grounding Continuity Checked", "Cable Tie Refresh", "Slack Cable Management", "Adapter Panel Alignment Fixed", "Pigtail Routing Inspected", "Rust Prevention Spray Applied", "Door Latch/Lock Lubricated", "Fiber Bend Radius Verified", "Airflow Blockage Cleared", "Power Cable Routing Separated", "Alarm Contact Checked", "Floor Mounting Bolts Tightened", "Overhead Cable Tray Aligned"],
+            "FAT Refix": ["Wall Dampness/Weakness Shift", "Screw Loose/Missing Re-drilled", "Clamp Rusted Replaced", "Pole Band Broken Replaced", "Height Adjustment for Safety", "Alignment Correction Leveling", "Vibration Loosening Tightened", "Plastering Work Caused Shift", "Temporary to Permanent Fix", "Monkey/Bird Disturbance Fix", "Wall Painting Removal Re-attach", "Vehicle Hit Misalignment Fixed", "Building Renovation Shift", "Tree Growth Push Relocated", "Public Safety Request Moved", "Foundation Crack Wall Shift", "Pole Replacement Shift Re-mount", "Cable Tension Pulled Box Fixed", "Unauthorized Movement Corrected", "Storm Damage Re-alignment"],
+            "OTB Refix": ["Wall Clamp Failure Replaced", "Rust on Mount Screws Fixed", "Building Painting Removal Re-attach", "Height Correction for Access", "Safe Access Shift Relocation", "Loose Mounting Re-drilled", "Drilling Error Corrected", "Cable Tension Pulled Box Fixed", "Vibration Issue Tightened", "Water Pipe Leak Nearby Shift", "Wall Crack/Collapse Relocated", "Insect Nest Behind Box Cleared", "Customer Aesthetic Request Move", "Access Obstruction Cleared", "Corrosion of Screws Replaced", "Insulation Spacer Failed/Fixed", "Ground Wire Re-connected", "Cover Screw Stripped & Replaced", "Entry Hole Sealant Re-applied", "Conduit Alignment Fixed"],
+            "EB drive": ["KSEB Pole Replacement Support", "HT Line Maintenance Clear", "Transformer Shift Fiber Clear", "Line Sagging Correction Support", "Spacer Installation Support", "Guard Wire Work Clear", "Pole Straightening Support", "Old Pole Removal Disconnect", "Cross Arm Change Support", "Authority Notice Compliance", "Stay Wire Replacement Clear", "Insulator Change Support", "Bird Guard Install Clear", "Line Clearance Work Support", "Feeder Maintenance Support", "HT Crossing Guard Clear", "Pole Numbering Support", "Streetlight Arm Fix Clear", "Cable Separation Drive", "Anti-Climbing Device Clear"],
+            "Door closed": ["Customer Relocated Permanently", "House Demolished Completely", "Permanent Disconnection Requested", "Building Renovation Locked", "Locked Gate/No Access Granted", "Shop Closed Permanently", "Owner Objection to Entry", "Safety Hazard Condemned Bldg", "Rental Vacancy Empty House", "Bill Non-Payment Long Term", "Legal Dispute Sealing by Court", "Covid/Quarantine Restriction Zone", "Key Holder Unavailable Long Term", "Dog/Pet Hazard Unresolved", "Flooded Premises Inaccessible", "Under Police Seal/Investigation", "Road Construction Blocked Entry", "Customer Out of Station Long Term", "Gate Weld Shut Permanently", "Bio-Bubble Zone Restricted"],
+            "EB Pole shifting drive": ["Road Widening Pole Shift", "Private Property Request Relocation", "Unsafe Leaning Pole Swapped", "New Transformer Install Shift", "High Tension Line Upgrade Shift", "Concrete Pole Swap Support", "Accident Damage Replacement", "Drainage Work Interference Shift", "Path Relocation Pole Move", "Municipality Order Compliance", "Footpath Construction Shift", "Bridge Construction Clear", "Underground Cabling (KSEB) Shift", "Landslide Risk Relocation", "Voltage Upgradation Shift", "Double Pole Structure Build", "Stay Wire Conflict Shift", "Smart Meter Install Clear", "Solar Pole Swap Shift", "Flyover Clearance Shift"],
+            "EB Tree cleaning drive": ["Monsoon Pre-check Trimming", "Touching HT Line Clearing", "Heavy Branch Overhang Cut", "Dry Branch Fire Risk Cut", "KSEB Scheduled Cut Support", "Municipality Trimming Support", "Coconut Tree Cleaning Support", "Bamboo Cluster Clearing", "Storm Debris Removal Assist", "Private Land Cutting Clear", "Termite Infested Tree Fall", "Wind Fall Risk Mitigation", "Signal Obstruction Branch Cut", "Cable Friction Wear Trimming", "Public Complaint Overgrowth", "Root System Weak Tree Removal", "Fruit Fall Damage Prevention", "Bird Nest Removal Support", "Power Arcing Clearing Support", "Emergency Fire Cut Assist"],
+            "underground cable replaced": ["Rodent/Termite Damage Sub-soil", "Water Ingress High Loss Replacement", "Construction Damage Severe Crush", "Depth Issue Shallow Trench Cut", "Road Expansion Crushed Conduit", "Cable Aging/Brittle Underground", "Capacity Upgrade Core Addition", "Route Diversion for New Foundation", "Joint Failure inside Buried Closure", "Soil Erosion/Exposure Damage", "Chemical/Sewage Contamination", "Crushed by Shifting Rock Load", "Tree Root Intrusion Severed", "Manufacturing Defect in Sheath", "Lightning Strike Ground Surge", "HDD Drill Hit Directly Replaced", "Soil Acid Corrosion Sheath", "Landslide Shear Stress Break", "River Bed Shift Break Replaced", "Ice Heave Damage Winter Fix"],
+            "Power correction": ["Low Voltage/Fluctuation Fixed", "Socket Burnout Replaced", "UPS Battery Dead Replaced", "Earthing Issue Corrected", "MCB Tripping Fault Found", "Loose Wiring Tightened", "Generator Link Fail Fixed", "SMPS Fault Replaced", "Power Extension Cord Replaced", "Solar Switchover Issue Fixed", "Fuse Blown Replaced", "Surge Protector Trip Reset", "Power Cable Rat Bite Replaced", "Phase Missing Restored", "Neutral Fault Corrected", "Inverter Overload Reduced", "Grid Frequency Error Bypassed", "Lightning Arrestor Fail Fixed", "Capacitor Bank Fail Fixed", "Transfer Switch Stuck Reset"],
+            "JC Sagging Correction": ["Chamber Sinking Soil Fixed", "Soil Settlement Pulled Cable", "Heavy Vehicle Movement Shift", "Clamp Failure inside MH Fixed", "Cable Loop Loose Re-tied", "Hook Rusted Replaced", "Water Flow Force Displacement", "Vibration Loosening Fixed", "Improper Installation Corrected", "Excess Slack Pulled & Tied", "Manhole Reconstruction Support", "Cable Tray Broken Replaced", "Joint Closure Weight Supported", "Rodent Nest Weight Removed", "Temperature Expansion Slack Fixed", "Lid Collapse Pressure Relieved", "Root Growth Push Corrected", "Illegal Dumping Weight Cleared", "Flood Silt Weight Cleaned", "Earthquake Shift Re-aligned"],
+            "Own Pole shifting": ["Road Widening Order Relocated", "Property Boundary Wall Relocated", "Leaning/Unsafe Foundation Fixed", "Rust/Corrosion at Base Swapped", "Height Increase Req Swapped", "Vehicle Hit Damage Swapped", "Neighbor Objection Relocated", "Path Change Relocated", "Soil Erosion Foundation Re-cast", "Aesthetic Realignment Relocated", "Gate Construction Relocated", "Drainage Work Interference Reloc", "Overhead Clearance Issue Fixed", "Landslide Threat Relocated", "Development Authority Order Moved", "Pole Cap Missing Replaced", "Guy Wire Re-tension Applied", "Concrete Base Crack Repaired", "Termite in Wood Pole Swapped", "Grounding Rod Check & Fix"],
+            "Planned Actvity": ["Network Upgrade/Augmentation", "Node Splitting for Load", "OLT Migration to New Site", "Fiber Ring Closure Security", "Backhaul Capacity Increase", "Tech Refresh (GPON to XGSPON)", "Software Patching Update", "Preventive Maintenance Check", "Link Protection Testing", "Audit Compliance Verification", "Power Plant Servicing", "Cooling System Service", "Fire Safety Drill Test", "Rack Reorganization Drive", "Labeling Drive Cleanup", "Battery Bank Swap Setup", "Rectifier Module Addition", "Switch Config Change Load", "Database Migration Window", "Security Patch Update"]
           }
         };
 
@@ -845,30 +414,22 @@
         FIBER_MATERIALS.forEach(m => materialState[m] = 0);
         COPPER_MATERIALS.forEach(m => materialState[m] = 0);
 
-        let tg = null;
-        try {
-            tg = window.Telegram?.WebApp;
-            if (tg && tg.initData) {
-                tg.expand();
-                tg.ready();
-                const user = tg.initDataUnsafe?.user;
-                if (user) {
-                    document.getElementById('userInfo').innerText = `Logged in as: ${user.first_name} ${user.last_name || ''}`;
-                } else {
-                    document.getElementById('userInfo').innerText = `App Started Securely.`;
-                }
+        let tg = window.Telegram?.WebApp;
+        if (tg) {
+            tg.expand();
+            tg.ready();
+            const user = tg.initDataUnsafe?.user;
+            if (user) {
+                document.getElementById('userInfo').innerText = `Logged in as: ${user.first_name}`;
             } else {
-                document.getElementById('userInfo').innerText = `⚠️ Running outside Telegram!`;
+                document.getElementById('userInfo').innerText = `Ready.`;
             }
-        } catch(e) {
-            console.warn("Telegram SDK init warning:", e);
         }
 
         function setupComboInput(selectId, manualId) {
             const selectEl = document.getElementById(selectId);
             const manualEl = document.getElementById(manualId);
             if(!selectEl || !manualEl) return;
-            
             selectEl.addEventListener('change', function() {
                 if (this.value === 'MANUAL') {
                     manualEl.classList.remove('hidden-animated');
@@ -880,24 +441,24 @@
             });
         }
 
-        function populateSelect(selectId, options, includeManual = true) {
+        function populateSelect(selectId, options, includeManual = true, defaultText = "Select...") {
             const selectEl = document.getElementById(selectId);
             if(!selectEl) return;
             
-            const firstOption = selectEl.querySelector('option[disabled]') ? selectEl.querySelector('option[disabled]').outerHTML : '';
-            let html = firstOption || '<option value="N/A" selected>Select...</option>';
+            let html = `<option value="N/A" disabled selected>${defaultText}</option>`;
             options.forEach(opt => {
                 html += `<option value="${opt}">${opt}</option>`;
             });
             if (includeManual) html += `<option value="MANUAL">⌨️ Manual Input...</option>`;
-            
             selectEl.innerHTML = html;
+            
             const manualId = selectId.replace('-select', '-manual');
             const manualEl = document.getElementById(manualId);
             if (manualEl) {
                 manualEl.classList.add('hidden-animated');
                 manualEl.value = '';
             }
+            selectEl.value = "N/A"; // Reset value internally
         }
 
         function cleanOpts(opts) { return (opts || []).filter(o => o !== 'MANUAL'); }
@@ -905,41 +466,55 @@
         setupComboInput('component-select', 'component-manual');
         setupComboInput('cable_type-select', 'cable_type-manual');
         setupComboInput('authority-select', 'authority-manual');
+        setupComboInput('delay_specific-select', 'delay_specific-manual');
         setupComboInput('rfo2-select', 'rfo2-manual');
         setupComboInput('reason-select', 'reason-manual');
-        setupComboInput('delay_specific-select', 'delay_specific-manual');
 
         const rfo1Select = document.getElementById('rfo1');
-        let rfo1Html = '<option value="" disabled selected>Select RFO 1...</option>';
+        let rfo1Html = '<option value="N/A" disabled selected>Select RFO 1...</option>';
         Object.keys(MAPPINGS.RFO2_MAPPING).forEach(opt => { rfo1Html += `<option value="${opt}">${opt.replace(/_/g, ' ')}</option>`; });
         rfo1Select.innerHTML = rfo1Html;
 
         const delaySelect = document.getElementById('delay');
         let delayHtml = '';
-        Object.keys(MAPPINGS.DELAY_REASONS).forEach(opt => { 
-            delayHtml += `<option value="${opt}" ${opt === 'NO DELAY' ? 'selected' : ''}>${opt}</option>`; 
-        });
+        Object.keys(MAPPINGS.DELAY_REASONS).forEach(opt => { delayHtml += `<option value="${opt}" ${opt === 'NO DELAY' ? 'selected' : ''}>${opt}</option>`; });
         delaySelect.innerHTML = delayHtml;
 
         rfo1Select.addEventListener('change', function() {
             const rfo2Group = document.getElementById('rfo2-group');
             const reasonGroup = document.getElementById('reason-group');
-            if (this.value && this.value !== 'N/A') {
+            
+            const rfo2Options = MAPPINGS.RFO2_MAPPING[this.value] || [];
+            if (rfo2Options.length > 0) {
                 rfo2Group.classList.remove('hidden-animated');
-                populateSelect('rfo2-select', cleanOpts(MAPPINGS.RFO2_MAPPING[this.value] || []));
-                reasonGroup.classList.add('hidden-animated');
+                populateSelect('rfo2-select', cleanOpts(rfo2Options), true, 'Select RFO 2...');
             } else {
                 rfo2Group.classList.add('hidden-animated');
-                reasonGroup.classList.add('hidden-animated');
+                document.getElementById('rfo2-select').innerHTML = '<option value="N/A">N/A</option>';
             }
+            
+            // Hide reason until user actually picks RFO2
+            reasonGroup.classList.add('hidden-animated');
+            document.getElementById('reason-select').innerHTML = '<option value="N/A">N/A</option>';
         });
 
         document.getElementById('rfo2-select').addEventListener('change', function() {
             const reasonGroup = document.getElementById('reason-group');
-            if (this.value && this.value !== 'N/A') {
+            
+            if (this.value && this.value !== 'N/A' && this.value !== 'MANUAL') {
+                const rfo1Val = document.getElementById('rfo1').value;
+                // Grab reasons matching RFO2 exactly. If none found, fallback to RFO1's reason list (if any).
+                let reasonOptions = MAPPINGS.REASON_MAPPING[this.value] || MAPPINGS.REASON_MAPPING[rfo1Val] || [];
+                
                 reasonGroup.classList.remove('hidden-animated');
-                let reasonOptions = MAPPINGS.REASON_MAPPING[this.value] || MAPPINGS.REASON_MAPPING[document.getElementById('rfo1').value] || ["General Action Taken"];
-                populateSelect('reason-select', cleanOpts(reasonOptions));
+                if (reasonOptions.length > 0) {
+                    populateSelect('reason-select', cleanOpts(reasonOptions), true, 'Select Reason...');
+                } else {
+                    populateSelect('reason-select', ["General Action Taken", "Other (Manual)"], true, 'Select Reason...');
+                }
+            } else if (this.value === 'MANUAL') {
+                reasonGroup.classList.remove('hidden-animated');
+                populateSelect('reason-select', ["General Action Taken", "Other (Manual)"], true, 'Select Reason...');
             } else {
                 reasonGroup.classList.add('hidden-animated');
             }
@@ -949,7 +524,7 @@
             const container = document.getElementById('delay_specific_container');
             if (this.value && this.value !== 'NO DELAY') {
                 container.classList.remove('hidden-animated');
-                populateSelect('delay_specific-select', cleanOpts(MAPPINGS.DELAY_REASONS[this.value] || []));
+                populateSelect('delay_specific-select', cleanOpts(MAPPINGS.DELAY_REASONS[this.value] || []), true, 'Select Specific Cause...');
             } else {
                 container.classList.add('hidden-animated');
             }
@@ -958,29 +533,20 @@
         document.getElementById('btn-get-location').addEventListener('click', function() {
             const statusEl = document.getElementById('loc-status');
             const locInput = document.getElementById('location');
-            
             if ("geolocation" in navigator) {
                 statusEl.innerHTML = "⏳ Fetching GPS Coordinates...";
                 statusEl.classList.remove('hidden-animated');
-                
                 navigator.geolocation.getCurrentPosition(
                     function(position) {
                         const lat = position.coords.latitude;
                         const lon = position.coords.longitude;
                         const currentVal = locInput.value.trim();
                         const gpsString = `(LAT: ${lat.toFixed(6)}, LON: ${lon.toFixed(6)})`;
-                        
-                        if (currentVal && !currentVal.includes("LAT:")) {
-                            locInput.value = `${currentVal}\n${gpsString}`;
-                        } else {
-                            locInput.value = gpsString;
-                        }
+                        locInput.value = currentVal && !currentVal.includes("LAT:") ? `${currentVal}\n${gpsString}` : gpsString;
                         statusEl.innerHTML = "✅ GPS Fetched Successfully.";
                         setTimeout(() => statusEl.classList.add('hidden-animated'), 3000);
                     },
-                    function(error) {
-                        statusEl.innerHTML = "❌ GPS Error. Make sure permissions are granted.";
-                    },
+                    function(error) { statusEl.innerHTML = "❌ GPS Error. Make sure permissions are granted."; },
                     { enableHighAccuracy: true, timeout: 10000 }
                 );
             } else {
@@ -1005,8 +571,7 @@
                             <input type="number" id="mat_input_${safeId}" value="${materialState[name]}" min="0" onchange="updateMaterial('${name}', 'INPUT')" class="mat-input">
                             <button type="button" class="mat-btn" onclick="updateMaterial('${name}', 1)">+</button>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
             contentDiv.innerHTML = html;
             document.getElementById('mat-overlay').classList.add('open');
@@ -1022,19 +587,15 @@
         }
 
         function updateMaterial(name, amount) {
+            const safeId = name.replace(/[^a-zA-Z0-9]/g, '');
+            const inputEl = document.getElementById(`mat_input_${safeId}`);
             if (amount === 'INPUT') {
-                const safeId = name.replace(/[^a-zA-Z0-9]/g, '');
-                const inputEl = document.getElementById(`mat_input_${safeId}`);
                 let val = parseInt(inputEl.value);
                 if (isNaN(val) || val < 0) val = 0;
                 materialState[name] = val;
             } else {
-                materialState[name] += amount;
-                if (materialState[name] < 0) materialState[name] = 0;
+                materialState[name] = Math.max(0, materialState[name] + amount);
             }
-            
-            const safeId = name.replace(/[^a-zA-Z0-9]/g, '');
-            const inputEl = document.getElementById(`mat_input_${safeId}`);
             if (inputEl) {
                 inputEl.value = materialState[name];
                 inputEl.style.transform = "scale(1.2)";
@@ -1044,16 +605,10 @@
 
         function updateMaterialSummaryUI() {
             const summaryBox = document.getElementById('material-summary-box');
-            let badges = '';
-            let total = 0;
-            
+            let badges = '', total = 0;
             for (const [name, qty] of Object.entries(materialState)) {
-                if (qty > 0) {
-                    total++;
-                    badges += `<span class="selected-mat-badge">${name}: ${qty}</span>`;
-                }
+                if (qty > 0) { total++; badges += `<span class="selected-mat-badge">${name}: ${qty}</span>`; }
             }
-            
             if (total > 0) {
                 summaryBox.innerHTML = badges;
                 summaryBox.classList.replace('bg-[var(--tg-theme-secondary-bg-color)]', 'bg-[var(--tg-theme-bg-color)]');
@@ -1073,10 +628,7 @@
             const modal = document.getElementById('alert-modal');
             const box = document.getElementById('alert-box');
             modal.classList.remove('hidden-animated');
-            setTimeout(() => {
-                box.classList.remove('scale-95', 'opacity-0');
-                box.classList.add('scale-100', 'opacity-100');
-            }, 10);
+            setTimeout(() => { box.classList.remove('scale-95', 'opacity-0'); box.classList.add('scale-100', 'opacity-100'); }, 10);
         }
         
         function closeAlert() {
@@ -1084,28 +636,28 @@
             const box = document.getElementById('alert-box');
             box.classList.remove('scale-100', 'opacity-100');
             box.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => { modal.classList.add('hidden-animated'); }, 200);
+            setTimeout(() => modal.classList.add('hidden-animated'), 200);
         }
 
         function getComboValue(baseId) {
-            const selectEl = document.getElementById(`${baseId}-select`);
-            const manualEl = document.getElementById(`${baseId}-manual`);
-            if (!selectEl) return "N/A";
-            
-            // If the element's group is hidden, it's not applicable
-            const group = selectEl.closest('.input-group');
-            if (group && group.classList.contains('hidden-animated')) return "N/A";
-            
-            if (selectEl.value === 'MANUAL') return manualEl ? manualEl.value.trim() || 'N/A' : 'N/A';
-            return selectEl.value && selectEl.value !== 'N/A' ? selectEl.value : 'N/A';
+            try {
+                const selectEl = document.getElementById(`${baseId}-select`);
+                const manualEl = document.getElementById(`${baseId}-manual`);
+                if (!selectEl) return "N/A";
+                
+                const group = selectEl.closest('.input-group');
+                if (group && group.classList.contains('hidden-animated')) return "N/A";
+                
+                if (selectEl.value === 'MANUAL') return manualEl ? (manualEl.value.trim() || 'N/A') : 'N/A';
+                return (selectEl.value && selectEl.value !== 'N/A') ? selectEl.value : 'N/A';
+            } catch(e) { return "N/A"; }
         }
 
         function submitForm() {
             const btn = document.getElementById('submit-btn');
             const originalText = btn.innerHTML;
             
-            // Provide immediate visual feedback!
-            btn.innerHTML = '⏳ SENDING TO BOT...';
+            btn.innerHTML = '⏳ PROCESSING...';
             btn.disabled = true;
 
             const type = document.getElementById('type').value;
@@ -1113,10 +665,10 @@
             const location = document.getElementById('location').value.trim();
             const rfo1 = document.getElementById('rfo1').value;
             
-            if (!type || !sr_no || !location || !rfo1) { 
+            if (!type || type === "N/A" || !sr_no || !location || !rfo1 || rfo1 === "N/A") { 
                 btn.innerHTML = originalText;
                 btn.disabled = false;
-                customAlert("Missing Info", "Ensure Type, ID, Location, and RFO 1 are filled out!"); 
+                customAlert("Missing Info", "Please ensure TYPE, ID, LOCATION, and RFO 1 are filled out!"); 
                 return; 
             }
 
@@ -1140,22 +692,27 @@
                 if (value > 0) payload.materials[key] = value;
             }
 
-            try {
-                if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.sendData) {
-                    // This is the magical function that talks to BotFather
+            // The absolute ultimate Telegram Submit Fix
+            if (window.Telegram && window.Telegram.WebApp) {
+                // If query_id exists, we are 100% allowed to send data back to the bot
+                if (window.Telegram.WebApp.initDataUnsafe && window.Telegram.WebApp.initDataUnsafe.query_id) {
                     window.Telegram.WebApp.sendData(JSON.stringify(payload));
-                    
-                    // Fallback to close the app if sendData doesn't automatically do it
-                    setTimeout(() => { window.Telegram.WebApp.close(); }, 500);
+                    btn.innerHTML = '✅ SENT!';
+                    setTimeout(() => window.Telegram.WebApp.close(), 500);
                 } else {
-                    throw new Error("Telegram sendData API not available.");
+                    // IF THEY OPENED IT WRONG, TELL THEM EXACTLY WHY
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    customAlert("⚠️ Launch Mode Blocked", 
+                        "You opened this app from an Inline Button or a web browser.\n\n" + 
+                        "Telegram's security rules completely block data submission from this mode.\n\n" + 
+                        "👉 FIX: Close this window, look at the bottom-left corner of the chat next to the typing bar, and click the 'MENU' Button to open the app properly!"
+                    );
                 }
-            } catch (e) {
-                console.error("Submission Error:", e);
+            } else {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
-                
-                customAlert("⚠️ Submit Blocked!", "Telegram blocked the submission.\n\nFIX: You MUST open this Mini App using the 'Menu Button' (bottom left next to keyboard) inside Telegram. \n\nDirect links or Inline Buttons do NOT allow apps to send data back!");
+                customAlert("⚠️ Platform Error", "This app must be opened inside the Telegram mobile or desktop app.");
             }
         }
     </script>
