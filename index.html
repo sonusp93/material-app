@@ -10,7 +10,6 @@
     
     <style>
         :root {
-            /* Fallbacks if Telegram theme variables are not loaded */
             --tg-theme-bg-color: #ffffff;
             --tg-theme-text-color: #000000;
             --tg-theme-hint-color: #999999;
@@ -120,8 +119,8 @@
             color: var(--tg-theme-button-text-color, #ffffff);
             border: none;
             border-radius: 12px;
-            padding: 14px 20px;
-            font-size: 15px;
+            padding: 16px 20px;
+            font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             text-align: center;
@@ -130,7 +129,8 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(51, 144, 236, 0.2);
+            box-shadow: 0 4px 12px rgba(51, 144, 236, 0.3);
+            width: 100%;
         }
 
         .btn-action:active {
@@ -142,6 +142,8 @@
             background-color: var(--tg-theme-secondary-bg-color, #f4f4f5);
             color: var(--tg-theme-text-color, #000000);
             box-shadow: none;
+            padding: 14px 20px;
+            font-size: 15px;
         }
 
         .sheet-overlay {
@@ -203,8 +205,8 @@
             border: none;
             color: var(--tg-theme-text-color, #000000);
             font-size: 18px;
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -216,7 +218,7 @@
         .mat-btn:active { transform: scale(0.9); }
 
         .mat-input {
-            width: 30px;
+            width: 40px;
             text-align: center;
             background: transparent;
             border: none;
@@ -231,7 +233,7 @@
         .selected-mat-badge {
             background-color: var(--tg-theme-button-color, #3390ec);
             color: var(--tg-theme-button-text-color, #ffffff);
-            padding: 4px 10px;
+            padding: 6px 12px;
             border-radius: 100px;
             font-size: 12px;
             font-weight: 600;
@@ -253,19 +255,17 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        .hidden-animated {
-            display: none !important;
-        }
+        .hidden-animated { display: none !important; }
     </style>
 </head>
 <body class="p-4">
 
     <div class="mb-5 text-center pt-2">
-        <h1 class="text-[var(--tg-theme-text-color)] font-extrabold text-xl tracking-tight">MATERIAL ENTRY</h1>
+        <h1 class="text-[var(--tg-theme-text-color)] font-extrabold text-xl tracking-tight">MATERIAL ENTRY HUB</h1>
         <p id="userInfo" class="text-[var(--tg-theme-hint-color)] font-medium text-xs mt-1">Authenticating...</p>
     </div>
 
-    <form id="entryForm" class="max-w-md mx-auto" onsubmit="return false;">
+    <div class="max-w-md mx-auto">
         
         <!-- SECTION 1: BASIC INFO -->
         <div class="panel">
@@ -273,7 +273,7 @@
             <div class="panel-content">
                 <div class="input-group">
                     <label class="label-text">ENTRY TYPE *</label>
-                    <select id="type" class="tg-input" required>
+                    <select id="type" class="tg-input">
                         <option value="" disabled selected>Select Type...</option>
                         <option value="SR">🎫 SR</option>
                         <option value="TT">🔧 TT</option>
@@ -287,7 +287,7 @@
                 </div>
                 <div class="input-group">
                     <label class="label-text">ID / TICKET NUMBER *</label>
-                    <input type="text" id="sr_no" class="tg-input" placeholder="e.g. 1-10293848" required>
+                    <input type="text" id="sr_no" class="tg-input" placeholder="e.g. 1-10293848">
                 </div>
             </div>
         </div>
@@ -298,7 +298,7 @@
             <div class="panel-content">
                 <div class="input-group">
                     <label class="label-text">RFO 1 *</label>
-                    <select id="rfo1" class="tg-input" required>
+                    <select id="rfo1" class="tg-input">
                         <option value="" disabled selected>Select RFO 1...</option>
                     </select>
                 </div>
@@ -385,10 +385,10 @@
                 
                 <div class="input-group">
                     <label class="label-text">INCIDENT LOCATION *</label>
-                    <button type="button" id="btn-get-location" class="btn-action btn-secondary py-2 text-sm mb-1">
+                    <button type="button" id="btn-get-location" class="btn-action btn-secondary text-sm mb-1">
                         📍 Fetch Live GPS Target
                     </button>
-                    <textarea id="location" rows="2" class="tg-input" placeholder="Enter manual address or fetch GPS..." required></textarea>
+                    <textarea id="location" rows="2" class="tg-input" placeholder="Enter manual address or fetch GPS..."></textarea>
                     <div id="loc-status" class="text-xs font-semibold text-[var(--tg-theme-button-color)] hidden-animated"></div>
                 </div>
 
@@ -421,8 +421,8 @@
             <div class="panel-header"><span>🧰</span> MATERIALS USED</div>
             <div class="panel-content pb-5">
                 <div class="grid grid-cols-2 gap-3 mb-2">
-                    <button type="button" onclick="openMaterialModal('FIBER')" class="btn-action btn-secondary py-3 text-sm">🧶 ADD FIBER</button>
-                    <button type="button" onclick="openMaterialModal('COPPER')" class="btn-action btn-secondary py-3 text-sm">🔸 ADD COPPER</button>
+                    <button type="button" onclick="openMaterialModal('FIBER')" class="btn-action btn-secondary text-sm">🧶 ADD FIBER</button>
+                    <button type="button" onclick="openMaterialModal('COPPER')" class="btn-action btn-secondary text-sm">🔸 ADD COPPER</button>
                 </div>
                 
                 <div id="material-summary-box" class="p-4 bg-[var(--tg-theme-secondary-bg-color)] rounded-xl border border-dashed border-[var(--tg-theme-hint-color)] text-center text-sm font-medium text-[var(--tg-theme-hint-color)] transition-all">
@@ -432,8 +432,8 @@
         </div>
 
         <!-- SUBMIT BUTTON -->
-        <div class="mt-6 mb-10">
-            <button type="button" id="submit-btn" onclick="submitForm()" class="btn-action w-full py-4 text-base shadow-lg">
+        <div class="mt-6 mb-12">
+            <button type="button" id="submit-btn" onclick="submitForm()" class="btn-action">
                 ✅ SAVE & SUBMIT ENTRY
             </button>
             <p class="text-center text-[var(--tg-theme-hint-color)] font-medium text-xs mt-3 opacity-80">
@@ -441,7 +441,7 @@
             </p>
         </div>
 
-    </form>
+    </div>
 
     <!-- Modal for Materials -->
     <div id="mat-overlay" class="sheet-overlay" onclick="closeMaterialModal()"></div>
@@ -452,7 +452,7 @@
         </div>
         <div class="overflow-y-auto p-4 flex-1 pb-6" id="mat-sheet-content"></div>
         <div class="p-4 bg-[var(--tg-theme-bg-color)] border-t border-[var(--tg-theme-secondary-bg-color)] pb-8">
-            <button type="button" onclick="closeMaterialModal()" class="btn-action w-full py-3">Done</button>
+            <button type="button" onclick="closeMaterialModal()" class="btn-action">Done</button>
         </div>
     </div>
 
@@ -461,7 +461,7 @@
         <div class="bg-[var(--tg-theme-bg-color)] rounded-2xl p-6 max-w-sm w-full text-center shadow-2xl transform scale-95 transition-transform" id="alert-box">
             <h3 id="alert-title" class="font-bold text-xl mb-2 text-[var(--tg-theme-text-color)]">Notice</h3>
             <p id="alert-msg" class="text-sm font-medium text-[var(--tg-theme-hint-color)] mb-6 leading-relaxed"></p>
-            <button onclick="closeAlert()" class="btn-action w-full py-3">Got it</button>
+            <button onclick="closeAlert()" class="btn-action">Got it</button>
         </div>
     </div>
 
@@ -527,10 +527,10 @@
                 if (user) {
                     document.getElementById('userInfo').innerText = `Logged in as: ${user.first_name} ${user.last_name || ''}`;
                 } else {
-                    document.getElementById('userInfo').innerText = `Running in Telegram Browser (Web App)`;
+                    document.getElementById('userInfo').innerText = `Running in Telegram Mini App`;
                 }
             } else {
-                document.getElementById('userInfo').innerText = `Running in standard browser (Simulation Mode)`;
+                document.getElementById('userInfo').innerText = `Running in Browser Mode (Simulation)`;
             }
         } catch(e) {
             console.warn("Telegram SDK init warning:", e);
@@ -583,7 +583,7 @@
 
         const rfo1Select = document.getElementById('rfo1');
         let rfo1Html = '<option value="" disabled selected>Select RFO 1...</option>';
-        Object.keys(MAPPINGS.RFO2_MAPPING).forEach(opt => { rfo1Html += `<option value="${opt}">${opt}</option>`; });
+        Object.keys(MAPPINGS.RFO2_MAPPING).forEach(opt => { rfo1Html += `<option value="${opt}">${opt.replace(/_/g, ' ')}</option>`; });
         rfo1Select.innerHTML = rfo1Html;
 
         const delaySelect = document.getElementById('delay');
@@ -763,7 +763,7 @@
             const selectEl = document.getElementById(`${baseId}-select`);
             const manualEl = document.getElementById(`${baseId}-manual`);
             if (!selectEl) return "N/A";
-            if (selectEl.value === 'MANUAL') return manualEl.value.trim() || 'N/A';
+            if (selectEl.value === 'MANUAL') return manualEl ? manualEl.value.trim() || 'N/A' : 'N/A';
             return selectEl.value || 'N/A';
         }
 
@@ -786,8 +786,12 @@
                 return; 
             }
 
-            const rfo2 = getComboValue('rfo2');
-            const reasonCut = getComboValue('reason');
+            const rfo2Select = document.getElementById('rfo2-select');
+            const rfo2 = (rfo2Select && !rfo2Select.closest('.input-group').classList.contains('hidden-animated')) ? getComboValue('rfo2') : 'N/A';
+            
+            const reasonSelect = document.getElementById('reason-select');
+            const reasonCut = (reasonSelect && !reasonSelect.closest('.input-group').classList.contains('hidden-animated')) ? getComboValue('reason') : 'N/A';
+
             const component = getComboValue('component');
             const cableType = getComboValue('cable_type');
             const authority = getComboValue('authority');
@@ -817,11 +821,11 @@
             }
 
             try {
-                if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe && Object.keys(window.Telegram.WebApp.initDataUnsafe).length > 0) {
+                if (window.Telegram && window.Telegram.WebApp) {
                     window.Telegram.WebApp.sendData(JSON.stringify(payload));
                 } else {
-                    console.log("Payload data ready:", payload);
-                    customAlert("Success (Simulated)", "Form validated successfully! Since you are testing in a standard web browser, tg.sendData() is bypassed. In Telegram, this will send data directly to your bot chat.");
+                    console.log("Simulated Payload:", payload);
+                    customAlert("Success (Simulated)", "Form validated! Since you are testing in a standard web browser, tg.sendData() is bypassed. In Telegram, this sends data straight to your bot.");
                 }
             } catch (e) {
                 console.error("Submission error:", e);
