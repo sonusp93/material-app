@@ -692,27 +692,22 @@
                 if (value > 0) payload.materials[key] = value;
             }
 
-            // The absolute ultimate Telegram Submit Fix
             if (window.Telegram && window.Telegram.WebApp) {
-                // If query_id exists, we are 100% allowed to send data back to the bot
-                if (window.Telegram.WebApp.initDataUnsafe && window.Telegram.WebApp.initDataUnsafe.query_id) {
+                try {
+                    // Send the data directly to the bot chat
                     window.Telegram.WebApp.sendData(JSON.stringify(payload));
                     btn.innerHTML = '✅ SENT!';
                     setTimeout(() => window.Telegram.WebApp.close(), 500);
-                } else {
-                    // IF THEY OPENED IT WRONG, TELL THEM EXACTLY WHY
+                } catch (err) {
+                    // If they opened it from the wrong place, tell them EXACTLY what to do
                     btn.innerHTML = originalText;
                     btn.disabled = false;
-                    customAlert("⚠️ Launch Mode Blocked", 
-                        "You opened this app from an Inline Button or a web browser.\n\n" + 
-                        "Telegram's security rules completely block data submission from this mode.\n\n" + 
-                        "👉 FIX: Close this window, look at the bottom-left corner of the chat next to the typing bar, and click the 'MENU' Button to open the app properly!"
-                    );
+                    customAlert("⚠️ Launch Error", "Telegram blocked the save.\n\nTo save data, you MUST launch this app from the huge Keyboard Button at the bottom of the chat (type /app), NOT the menu button.");
                 }
             } else {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
-                customAlert("⚠️ Platform Error", "This app must be opened inside the Telegram mobile or desktop app.");
+                customAlert("⚠️ Platform Error", "This app must be opened inside Telegram.");
             }
         }
     </script>
