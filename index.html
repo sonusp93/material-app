@@ -534,16 +534,39 @@
             const statusEl = document.getElementById('loc-status');
             const locInput = document.getElementById('location');
             if ("geolocation" in navigator) {
-                statusEl.innerHTML = "⏳ Fetching GPS Coordinates...";
+                statusEl.innerHTML = "⏳ Fetching GPS & Address...";
                 statusEl.classList.remove('hidden-animated');
                 navigator.geolocation.getCurrentPosition(
-                    function(position) {
+                    async function(position) {
                         const lat = position.coords.latitude;
                         const lon = position.coords.longitude;
-                        const currentVal = locInput.value.trim();
-                        const gpsString = `(LAT: ${lat.toFixed(6)}, LON: ${lon.toFixed(6)})`;
-                        locInput.value = currentVal && !currentVal.includes("LAT:") ? `${currentVal}\n${gpsString}` : gpsString;
-                        statusEl.innerHTML = "✅ GPS Fetched Successfully.";
+                        
+                        try {
+                            // Reverse Geocoding to get Location Names
+                            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
+                            const data = await response.json();
+                            const addr = data.address || {};
+                            
+                            const parts = [];
+                            const localArea = addr.suburb || addr.neighbourhood || addr.village || addr.town;
+                            const cityDistrict = addr.city || addr.county || addr.state_district;
+                            const state = addr.state;
+                            
+                            if (localArea) parts.push(localArea.toUpperCase());
+                            if (cityDistrict && cityDistrict.toUpperCase() !== (localArea || '').toUpperCase()) parts.push(cityDistrict.toUpperCase());
+                            if (state) parts.push(state.toUpperCase());
+                            
+                            let addressStr = parts.length > 0 ? parts.join(", ") : "LOCATION FETCHED";
+                            
+                            locInput.value = `${addressStr} (LAT: ${lat.toFixed(6)}, LON: ${lon.toFixed(6)})`;
+                            statusEl.innerHTML = "✅ Location Fetched Successfully.";
+                        } catch (e) {
+                            // Fallback if network fails
+                            const currentVal = locInput.value.trim();
+                            const gpsString = `(LAT: ${lat.toFixed(6)}, LON: ${lon.toFixed(6)})`;
+                            locInput.value = currentVal && !currentVal.includes("LAT:") ? `${currentVal}\n${gpsString}` : gpsString;
+                            statusEl.innerHTML = "✅ GPS Fetched (Address fetch failed).";
+                        }
                         setTimeout(() => statusEl.classList.add('hidden-animated'), 3000);
                     },
                     function(error) { statusEl.innerHTML = "❌ GPS Error. Make sure permissions are granted."; },
